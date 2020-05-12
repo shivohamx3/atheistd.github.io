@@ -2,12 +2,12 @@
 
 ### Removing `gnome` & `snapd` junk.
 
-- - `% sudo apt autoremove --purge snapd gnome-calculator gnome-getting-started-docs gnome-initial-setup gnome-online-accounts`
-- - `% sudo reboot`
-- - `% sudo apt update && sudo apt upgrade -y`
-- - `% sudo passwd`
-- - `% sudo apt install openssh-server -y`
-- - `% sudo reboot`
+- `$ sudo apt autoremove --purge snapd gnome-calculator gnome-getting-started-docs gnome-initial-setup gnome-online-accounts`
+- `$ sudo reboot`
+- `$ sudo apt update && sudo apt upgrade -y`
+- `$ sudo passwd`
+- `$ sudo apt install openssh-server -y`
+- `$ sudo reboot`
 
 
 
@@ -17,7 +17,7 @@
 
 ### `gnome` extensions
 
-``- `% sudo apt install gnome-shell-extensions -y```
+``- `$ sudo apt install gnome-shell-extensions -y```
 * [RunCat](https://extensions.gnome.org/extension/2986/runcat/)
 * [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
 * [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
@@ -27,24 +27,24 @@
 
 ### Install necessary packages
 
-- - `% sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop transmission wget zsh -y```
-- - `% curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
-- - `% chmod +x ./auto-install.sh`
-- - `% sudo ./auto-install.sh`
-- - `% sudo connectd_installer`
+- `$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop transmission wget zsh -y```
+- `$ curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
+- `$ chmod +x ./auto-install.sh`
+- `$ sudo ./auto-install.sh`
+- `$ sudo connectd_installer`
 - [`conky` tutorial](https://www.youtube.com/watch?v=QB8cjKpdVQY&t=619s) - [`conky` theme](https://www.deviantart.com/seajey/art/Conky-Seamod-v0-1-283461046)
 
 
 
 ### `git` config
 
-- - `% git config --global user.name "YOUR NAME"`
-- - `% git config --global user.email "YOUR EMAIL"`
-- - `% git clone --depth 1 https://github.com/atheistd/setup ~/setup`
-- - `% mv ~/setup/sentinel/.zshrc ~/.zshrc && chmod +x ~/.zshrc`
-- - `% zsh`
-- - `% rm -rf ~/setup`
-- - `% chsh -s $(which zsh) atheistd`
+- `$ git config --global user.name "YOUR NAME"`
+- `$ git config --global user.email "YOUR EMAIL"`
+- `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
+- `$ mv ~/setup/sentinel/.zshrc ~/.zshrc && chmod +x ~/.zshrc`
+- `$ zsh`
+- `% rm -rf ~/setup`
+- `% chsh -s $(which zsh) atheistd`
 
 
 
