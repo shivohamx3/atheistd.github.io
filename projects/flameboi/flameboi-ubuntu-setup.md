@@ -27,7 +27,7 @@
 
 ### Install necessary packages
 
-- `$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop transmission wget zsh -y```
+- `$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop transmission wget -y```
 - `$ curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
 - `$ chmod +x ./auto-install.sh`
 - `$ sudo ./auto-install.sh`
@@ -41,10 +41,11 @@
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
-- `$ mv ~/setup/sentinel/.zshrc ~/.zshrc && chmod +x ~/.zshrc`
-- `$ zsh`
+- `$ mkdir -p ~/.config/fish/functions/`
+- `$ mv ~/setup/sentinel/fish_prompt.fish ~/.config/fish/functions/ && chmod +x ~/.config/fish/functions/fish_prompt.fish`
+- `$ fish`
 - `% rm -rf ~/setup`
-- `% chsh -s $(which zsh) atheistd`
+- `% chsh -s $(which fish) atheistd`
 
 
 
