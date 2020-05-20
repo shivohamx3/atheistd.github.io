@@ -40,12 +40,13 @@
 
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
+- `% chsh -s /usr/bin/fish`
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
 - `$ mkdir -p ~/.config/fish/`
 - `$ mv ~/setup/sentinel/config.fish ~/.config/fish/ && chmod +x ~/.config/fish/config.fish`
 - `$ fish`
-- `% rm -rf ~/setup`
-- `% chsh -s /usr/bin/fish`
+- `% cd ~/setup`
+
 
 
 

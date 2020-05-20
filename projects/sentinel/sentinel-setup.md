@@ -17,6 +17,7 @@
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
 <br>
+- `% chsh -s /usr/bin/fish`
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
 - `$ mkdir -p ~/.config/fish/`
 - `$ mv ~/setup/sentinel/config.fish ~/.config/fish/`
@@ -25,7 +26,6 @@
 - `$ fish`
 - `$ source ~/.config/fish/config.fish`
 - `% cd setup`
-- `% chsh -s /usr/bin/fish`
 
 
 
