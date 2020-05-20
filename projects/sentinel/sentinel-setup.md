@@ -18,15 +18,14 @@
 - `$ pihole -a -p`
 <br>
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
-- `$ mkdir -p ~/.config/fish/functions/`
-- `$ mv ~/setup/sentinel/fish_config.fish ~/.config/fish/functions/`
+- `$ mkdir -p ~/.config/fish/`
+- `$ mv ~/setup/sentinel/config.fish ~/.config/fish/`
 - `$ mv ~/setup/sentinel/*.sh ~/`
-- `$ chmod +x ~/.config/fish/functions/fish_config.fish`
+- `$ chmod +x ~/.config/fish/config.fish`
 - `$ fish`
-- `$ source ~/.config/fish/functions/fish_config.fish`
+- `$ source ~/.config/fish/config.fish`
 - `% cd setup`
-- `% echo /usr/local/bin/fish | sudo tee -a /etc/shells`
-- `% chsh -s /usr/local/bin/fish`
+- `% chsh -s /usr/bin/fish`
 
 
 

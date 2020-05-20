@@ -53,9 +53,10 @@
 ### `fish_config.fish`
 
 - `% git clone --depth 1 https://github.com/atheistd/setup ~/Documents/setup`
-- `% mkdir -p ~/.config/fish/functions/`
-- `% cp ~/Documents/setup/ringmaster/fish_config.fish ~/.config/fish/functions/`
-- `% chown +x ~/.config/fish/functions/fish_config.fish`
+- `% mkdir -p ~/.config/fish/`
+- `% cp ~/Documents/setup/ringmaster/config.fish ~/.config/fish/`
+- `% chown +x ~/.config/fish/config.fish`
+- `% fish`
 
 
 

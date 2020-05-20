@@ -41,12 +41,11 @@
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
-- `$ mkdir -p ~/.config/fish/functions/`
-- `$ mv ~/setup/sentinel/fish_config.fish ~/.config/fish/functions/ && chmod +x ~/.config/fish/functions/fish_config.fish`
+- `$ mkdir -p ~/.config/fish/`
+- `$ mv ~/setup/sentinel/config.fish ~/.config/fish/ && chmod +x ~/.config/fish/config.fish`
 - `$ fish`
 - `% rm -rf ~/setup`
-- `% echo /usr/local/bin/fish | sudo tee -a /etc/shells`
-- `% chsh -s /usr/local/bin/fish`
+- `% chsh -s /usr/bin/fish`
 
 
 
