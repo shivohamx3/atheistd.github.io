@@ -19,12 +19,14 @@
 <br>
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
 - `$ mkdir -p ~/.config/fish/functions/`
-- `$ mv ~/setup/sentinel/fish_prompt.fish ~/.config/fish/functions/`
+- `$ mv ~/setup/sentinel/fish_config.fish ~/.config/fish/functions/`
 - `$ mv ~/setup/sentinel/*.sh ~/`
-- `$ chmod +x ~/.config/fish/functions/fish_prompt.fish`
+- `$ chmod +x ~/.config/fish/functions/fish_config.fish`
 - `$ fish`
-- `% rm -rf ~/setup`
-- `% chsh -s $(which fish) pi`
+- `$ source ~/.config/fish/functions/fish_config.fish`
+- `% cd setup`
+- `% echo /usr/local/bin/fish | sudo tee -a /etc/shells`
+- `% chsh -s /usr/local/bin/fish`
 
 
 
