@@ -34,7 +34,7 @@
 ### Python set-up
 
 - `% brew install python3`
-- `% newpython3 -m venv "Deep Learning"`
+- `% newenv "Deep Learning"`
 - `% startpy`
 - `% pip3 install --upgrade pip`
 - `% pip3 install pip-review`
@@ -50,11 +50,12 @@
 - `% git config --global credential.helper osxkeychain`
 
 
-### `.zshrc`
+### `fish_config.fish`
 
 - `% git clone --depth 1 https://github.com/atheistd/setup ~/Documents/setup`
-- `% cp ~/Documents/setup/ringmaster/.zshrc ~/.zshasdf`
-- `% chown +x ~/.zshrc`
+- `% mkdir -p ~/.config/fish/functions/`
+- `% cp ~/Documents/setup/ringmaster/fish_config.fish ~/.config/fish/functions/`
+- `% chown +x ~/.config/fish/functions/fish_config.fish`
 
 
 
