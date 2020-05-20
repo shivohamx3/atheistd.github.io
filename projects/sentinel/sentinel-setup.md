@@ -2,6 +2,7 @@
 
 ### First setup
 
+- `$ ssh pi@8.0.0.4`
 - `$ vncserver -geometry 1920x1080`
 - `$ sudo apt update && sudo apt full-upgrade -y`
 - `$ sudo passwd`
@@ -12,7 +13,7 @@
 
 ### Installing necessary packages
 
-- `$ sudo apt install apache2 connectd curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted handbrake nload python3-pip python3-venv samba samba-common-bin speedtest-cli telegram-desktop transmission wget zsh -y`
+- `$ sudo apt install apache2 connectd curl exfat-fuse exfat-utils ffmpeg firefox-esr fish git glances gparted handbrake nload python3-pip python3-venv samba samba-common-bin speedtest-cli telegram-desktop transmission wget -y`
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
 <br>
