@@ -42,7 +42,7 @@
 - `$ git config --global user.email "YOUR EMAIL"`
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
 - `$ mkdir -p ~/.config/fish/functions/`
-- `$ mv ~/setup/sentinel/fish_prompt.fish ~/.config/fish/functions/ && chmod +x ~/.config/fish/functions/fish_prompt.fish`
+- `$ mv ~/setup/sentinel/fish_config.fish ~/.config/fish/functions/ && chmod +x ~/.config/fish/functions/fish_config.fish`
 - `$ fish`
 - `% rm -rf ~/setup`
 - `% chsh -s $(which fish) atheistd`
