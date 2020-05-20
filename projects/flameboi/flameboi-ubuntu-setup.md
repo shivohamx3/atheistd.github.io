@@ -45,7 +45,8 @@
 - `$ mv ~/setup/sentinel/fish_config.fish ~/.config/fish/functions/ && chmod +x ~/.config/fish/functions/fish_config.fish`
 - `$ fish`
 - `% rm -rf ~/setup`
-- `% chsh -s $(which fish) atheistd`
+- `% echo /usr/local/bin/fish | sudo tee -a /etc/shells`
+- `% chsh -s /usr/local/bin/fish`
 
 
 
