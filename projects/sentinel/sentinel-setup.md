@@ -18,11 +18,13 @@
 - `$ pihole -a -p`
 <br>
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
-- `$ mv ~/setup/sentinel/.zshrc ~/setup/sentinel/*.sh ~/`
-- `$ chmod +x ~/.zshrc`
-- `$ zsh`
+- `$ mkdir -p ~/.config/fish/functions/`
+- `$ mv ~/setup/sentinel/fish_prompt.fish ~/.config/fish/functions/`
+- `$ mv ~/setup/sentinel/*.sh ~/`
+- `$ chmod +x ~/.config/fish/functions/fish_prompt.fish`
+- `$ fish`
 - `% rm -rf ~/setup`
-- `% chsh -s $(which zsh) pi`
+- `% chsh -s $(which fish) pi`
 
 
 
