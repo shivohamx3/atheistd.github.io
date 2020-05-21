@@ -4,18 +4,13 @@
 
 # atheistd
 
-### [Setup `ringmaster`](https://atheistd.github.io/projects/ringmaster/ringmaster-setup)[^ringmaster]
+### [Setup `ringmaster`](https://atheistd.github.io/projects/ringmaster/ringmaster-setup)
 
-### [Setup `sentinel`](https://atheistd.github.io/projects/sentinel/sentinel-setup)[^sentinel]
+### [Setup `sentinel`](https://atheistd.github.io/projects/sentinel/sentinel-setup)
 
-### [Setup `flameboi` (Clear Linux)](https://atheistd.github.io/projects/flameboi/flameboi-clear-linux-setup)[^flameboi_a]
+### [Setup `flameboi` (Clear Linux)](https://atheistd.github.io/projects/flameboi/flameboi-clear-linux-setup)
 
-### [Setup `flameboi` (Ubuntu 18.04)](https://atheistd.github.io/projects/flameboi/flameboi-ubuntu-setup)[^flameboi_b]
-
-[^ringmaster]: 101
-[^sentinel]: 103
-[^flameboi_a]: 106
-[^flameboi_b]: 106
+### [Setup `flameboi` (Ubuntu 18.04)](https://atheistd.github.io/projects/flameboi/flameboi-ubuntu-setup)
 
 <br><br>
 <br><br><br><br>
