@@ -3,7 +3,7 @@
 ### Removing `snapd` and other junk.
 
 - `$ sudo apt autoremove --purge snapd -y `
-- ```$ apt list --installed | grep gnome thunderbird aisleriot cheese deja-dup libreoffice rhythmbox remmina seahorse shotwell shotwell simple-scan thunderbird thunderbird```
+- ```$ apt list --installed | grep gnome thunderbird aisleriot cheese deja-dup libreoffice rhythmbox remmina seahorse shotwell simple-scan```
 - `$ sudo reboot`
 - `$ sudo apt update && sudo apt upgrade`
 - `$ sudo passwd`
