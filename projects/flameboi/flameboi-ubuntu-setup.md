@@ -28,9 +28,12 @@
 > - Turn on `Use higher precision` `Hide zero values` in Vitals
 > - `Caffeine` `RunCat` `Vitals` `Simple net speed`
 
+
+
 ### Install necessary packages
 
-- ```$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget -y```
+- ```$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget```
+<br>[remote.it](http://remote.it) ⤵
 - `$ curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
 - `$ chmod +x ./auto-install.sh`
 - `$ sudo ./auto-install.sh`
@@ -44,12 +47,12 @@
 - `$ git config --global credential.helper store`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
-- `% chsh -s /usr/bin/fish`
+- `$ chsh -s $(which fish) $whoami`
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
 - `$ mkdir -p ~/.config/fish/`
 - `$ mv ~/setup/sentinel/config.fish ~/.config/fish/ && chmod +x ~/.config/fish/config.fish`
+- `$ mv ~/setup/flameboi/*.fish ~/.config/fish/config.fish && chmod +x ~/.config/fish/*.fish`
 - `$ fish`
-- `% cd ~/setup`
 
 
 
