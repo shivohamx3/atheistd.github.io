@@ -2,7 +2,7 @@
 
 ### Removing `gnome` & `snapd` junk.
 
-- `$ sudo apt autoremove --purge snapd gnome-calculator gnome-getting-started-docs gnome-initial-setup gnome-online-accounts`
+- ```$ sudo apt autoremove --purge snapd aisleriot cheese cheese-common deja-dup gnome-calculator gnome-getting-started-docs gnome-initial-setup gnome-mahjongg gnome-mines gnome-sudoku gnome-todo gnome-todo-common gnome-user-docs libcheese-gtk25 libcheese8 libgnome-todo libreoffice-base-core libreoffice-calc libreoffice-common libreoffice-core libreoffice-draw libreoffice-gnome libreoffice-gtk3 libreoffice-help-common libreoffice-help-en-us libreoffice-impress libreoffice-math libreoffice-ogltrans libreoffice-pdfimport libreoffice-style-breeze libreoffice-style-colibre libreoffice-style-elementary libreoffice-style-tango libreoffice-writer librhythmbox-core10 remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc rhythmbox rhythmbox-data rhythmbox-plugin-alternative-toolbar rhythmbox-plugins seahorse shotwell shotwell-common simple-scan thunderbird thunderbird-gnome-support thunderbird-locale-en thunderbird-locale-en-us```
 - `$ sudo reboot`
 - `$ sudo apt update && sudo apt upgrade -y`
 - `$ sudo passwd`
@@ -27,7 +27,7 @@
 
 ### Install necessary packages
 
-- `$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop transmission wget -y```
+- `$ sudo apt install  -y```
 - `$ curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
 - `$ chmod +x ./auto-install.sh`
 - `$ sudo ./auto-install.sh`
@@ -38,6 +38,7 @@
 
 ### `git` config
 
+- `$ git config --global credential.helper store`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 - `% chsh -s /usr/bin/fish`
@@ -47,6 +48,11 @@
 - `$ fish`
 - `% cd ~/setup`
 
+
+
+### `e-mail` client
+
+- [Mailspring](https://getmailspring.com/download)
 
 
 
