@@ -1,6 +1,6 @@
 # Setup *flameboi!* (Ubuntu 18.04) ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/flameboi/flameboi-small.png)
 
-### Removing `gnome` & `snapd` junk.
+### Removing `snapd` and other junk.
 
 - ```$ sudo apt autoremove --purge snapd -y && sudo apt autoremove --purge aisleriot cheese cheese-common deja-dup gnome-calculator gnome-getting-started-docs gnome-initial-setup gnome-mahjongg gnome-mines gnome-sudoku gnome-todo gnome-todo-common gnome-user-docs libcheese-gtk25 libcheese8 libgnome-todo libreoffice-base-core libreoffice-calc libreoffice-common libreoffice-core libreoffice-draw libreoffice-gnome libreoffice-gtk3 libreoffice-help-common libreoffice-help-en-us libreoffice-impress libreoffice-math libreoffice-ogltrans libreoffice-pdfimport libreoffice-style-breeze libreoffice-style-colibre libreoffice-style-elementary libreoffice-style-tango libreoffice-writer librhythmbox-core10 remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc rhythmbox rhythmbox-data rhythmbox-plugin-alternative-toolbar rhythmbox-plugins seahorse shotwell shotwell-common simple-scan thunderbird thunderbird-gnome-support thunderbird-locale-en thunderbird-locale-en-us```
 - `$ sudo reboot`
@@ -17,17 +17,20 @@
 
 ### `gnome` extensions
 
-``- `$ sudo apt install gnome-shell-extensions -y```
+- `$ sudo apt install gnome-shell-extensions -y`
+* [Chromium extension](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
 * [RunCat](https://extensions.gnome.org/extension/2986/runcat/)
 * [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
 * [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 * [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 
-
+> - Add `terminator`, `brave`, `transmission` and `firefox` to Caffeine
+> - Turn on `Use higher precision` `Hide zero values` in Vitals
+> - `Caffeine` `RunCat` `Vitals` `Simple net speed`
 
 ### Install necessary packages
 
-- `$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget -y```
+- ```$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget -y```
 - `$ curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
 - `$ chmod +x ./auto-install.sh`
 - `$ sudo ./auto-install.sh`
