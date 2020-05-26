@@ -2,18 +2,39 @@
 
 ### First setup
 
-- `$ ssh pi@8.0.0.4`
-- `$ vncserver -geometry 1920x1080`
+- `$ ssh ubuntu@8.0.0.4`
+- `$ snap list`
+- `$ snap remove <packages>`
+- `$ sudo apt autoremove --purge snapd`
 - `$ sudo apt update && sudo apt full-upgrade -y`
+- `$ sudo reboot +0`
+
+
+
+### Installing `xfce`
+
+- `$ sudo apt install xfce4 xfce4-goodies`
+- `$ sudo apt install tightvncserver`
+- `$ sudo reboot +0`
+- `$ vncserver -geometry 1920x1080`
+- `$ vncserver -kill :1`
+- `$ mv ~/.vnc/xstartup ~/.vnc/xstartup.bak`
+- `$ nano ~/.vnc/xstartup`
+- ```
+#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &```
+- `$ sudo chmod +x ~/.vnc/xstartup`
+- `$ vncserver -geometry 1920x1080`
 - `$ sudo passwd`
-- `$ sudo raspi-config`
 - `$ sudo reboot +0`
 
 
 
 ### Installing necessary packages
 
-- `$ sudo apt install apache2 connectd curl exfat-fuse exfat-utils ffmpeg firefox-esr fish git glances gparted handbrake nload python3-pip python3-venv samba samba-common-bin speedtest-cli telegram-desktop transmission wget -y`
+- `$ vncserver -geometry 1920x1080`
+- `$ sudo apt install apache2 chromium-browser curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted nload samba samba-common-bin speedtest-cli telegram-desktop transmission wget`
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
 <br>

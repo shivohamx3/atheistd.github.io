@@ -27,7 +27,7 @@
 ### Brew
 
 - [`install script`](https://brew.sh/)
-- `% brew install ffmpeg htop speedtest-cli wget`
+- `% brew install cowsay ffmpeg fish fortune glances htop neofetch speedtest-cli ssh-copy-id wget`
 
 
 
@@ -48,15 +48,17 @@
 - `% git config --global user.name "YOUR NAME"`
 - `% git config --global user.email "YOUR EMAIL"`
 - `% git config --global credential.helper osxkeychain`
+- `% git config --global core.editor nano`
 
 
 ### `fish_config.fish`
 
 - `% git clone --depth 1 https://github.com/atheistd/setup ~/Documents/setup`
-- `% mkdir -p ~/.config/fish/`
-- `% cp ~/Documents/setup/ringmaster/config.fish ~/.config/fish/`
-- `% chmod +x ~/.config/fish/config.fish`
+- `% mkdir -p ~/.config/fish/functions/`
+- `% cp ~/Documents/setup/ringmaster/*.fish ~/.config/fish/functions/`
+- `% chmod -v +x ~/.config/fish/functions/*.fish`
 - `% fish`
+- ` ╰─> source ~/.config/fish/functions/fish_prompt.fish`
 
 
 

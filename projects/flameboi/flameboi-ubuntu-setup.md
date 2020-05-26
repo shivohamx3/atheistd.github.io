@@ -46,6 +46,7 @@
 ### `git` config
 
 - `$ git config --global credential.helper store`
+- `$ git config --global core.editor nano`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 - `$ chsh -s $(which fish) $whoami`
