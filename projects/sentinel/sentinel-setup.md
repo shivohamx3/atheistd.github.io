@@ -24,10 +24,11 @@
 - `$ vncserver -kill :1`
 - `$ mv ~/.vnc/xstartup ~/.vnc/xstartup.bak`
 - `$ nano ~/.vnc/xstartup`
-- ```
-#!/bin/bash
-xrdb $HOME/.Xresources
-startxfce4 &```
+
+> `#!/bin/bash`<br>
+> `xrdb $HOME/.Xresources`<br>
+> `startxfce4 &`<br>
+
 - `$ sudo chmod +x ~/.vnc/xstartup`
 - `$ vncserver -geometry 1920x1080`
 - `$ sudo passwd`
