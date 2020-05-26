@@ -42,7 +42,7 @@
 - `$ sudo apt install apache2 chromium-browser curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget`
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
-- `$ chsh -s /usr/bin/fish`
+- `$ chsh -s $(which fish) $whoami`
 - `$ git config --global credential.helper store`
 - `$ git config --global core.editor nano`
 - `$ git config --global user.name "YOUR NAME"`
@@ -50,9 +50,9 @@
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
 - `$ git clone --depth 1 https://github.com/atheistd/fish_prompt ~/fish_prompt`
 - `$ mkdir -p ~/.config/fish/functions/`
-- `$ mv ~/fish_prompt/fish_prompt.fish ~/.config/fish/functions/`
+- `$ mv ~/fish_prompt/*.fish ~/.config/fish/functions/`
 - `$ mv ~/setup/sentinel/*.sh ~/`
-- `$ chmod +x ~/.config/fish/functions/fish_prompt.fish`
+- `$ chmod -v +x ~/.config/fish/functions/*.fish`
 - `$ fish`
 - `$ source ~/.config/fish/functions/fish_prompt.fish`
 - `% cd setup`
