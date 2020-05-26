@@ -39,18 +39,22 @@
 ### Installing necessary packages
 
 - `$ vncserver -geometry 1920x1080`
-- `$ sudo apt install apache2 chromium-browser curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted nload samba samba-common-bin speedtest-cli telegram-desktop transmission wget`
+- `$ sudo apt install apache2 chromium-browser curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget`
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
-<br>
-- `% chsh -s /usr/bin/fish`
+- `$ chsh -s /usr/bin/fish`
+- `$ git config --global credential.helper store`
+- `$ git config --global core.editor nano`
+- `$ git config --global user.name "YOUR NAME"`
+- `$ git config --global user.email "YOUR EMAIL"`
 - `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
-- `$ mkdir -p ~/.config/fish/`
-- `$ mv ~/setup/sentinel/config.fish ~/.config/fish/`
+- `$ git clone --depth 1 https://github.com/atheistd/fish_prompt ~/fish_prompt`
+- `$ mkdir -p ~/.config/fish/functions/`
+- `$ mv ~/fish_prompt/fish_prompt.fish ~/.config/fish/functions/`
 - `$ mv ~/setup/sentinel/*.sh ~/`
-- `$ chmod +x ~/.config/fish/config.fish`
+- `$ chmod +x ~/.config/fish/functions/fish_prompt.fish`
 - `$ fish`
-- `$ source ~/.config/fish/config.fish`
+- `$ source ~/.config/fish/functions/fish_prompt.fish`
 - `% cd setup`
 
 
