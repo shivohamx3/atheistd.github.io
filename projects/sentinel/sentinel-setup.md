@@ -42,7 +42,7 @@
 ### Installing necessary packages
 
 - `$ vncserver -geometry 1920x1080`
-- `$ sudo apt install apache2 chromium-browser curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget`
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget`
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
 - `$ chsh -s $(which fish) $whoami`
