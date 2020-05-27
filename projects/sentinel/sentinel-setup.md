@@ -6,7 +6,7 @@
 - `$ sudo reboot +0`
 - ` ╰─> ssh-keygen -t rsa -b 4096`
 - ` ╰─> scp ~/.ssh/id_rsa.pub ubuntu@8.0.0.4:/home/ubuntu/.ssh/ringmaster.pub`
-- `$ cd .ssh && cat ringmaster.pub >> authorized_keys`
+- `$ cd ~/.ssh && cat ringmaster.pub >> authorized_keys`
 - `$ sudo nano /etc/hostname`
 - `$ sudo reboot +0`
 - `$ snap list`
@@ -30,6 +30,7 @@
 
 > `#!/bin/bash`<br>
 > `xrdb $HOME/.Xresources`<br>
+> `autocutsel -fork`
 > `startxfce4 &`<br>
 
 - `$ sudo chmod +x ~/.vnc/xstartup`
@@ -42,10 +43,10 @@
 ### Installing necessary packages
 
 - `$ vncserver -geometry 1920x1080`
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget`
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget`
+- `$ sudo apt install gcc cmake libncurses5 libncurses5-dev build-essential -y`
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
-- `$ chsh -s $(which fish) $whoami`
 - `$ git config --global credential.helper store`
 - `$ git config --global core.editor nano`
 - `$ git config --global user.name "YOUR NAME"`
@@ -57,9 +58,7 @@
 - `$ mv ~/setup/sentinel/*.sh ~/`
 - `$ mv ~/setup/sentinel/*.fish ~/.config/fish/functions/`
 - `$ chmod -v +x ~/.config/fish/functions/*.fish`
-- `$ fish`
-- `$ source ~/.config/fish/functions/fish_prompt.fish`
-- `% cd setup`
+
 
 
 
@@ -68,7 +67,7 @@
 - `% cd /media && sudo mkdir heathenDisk`
 - `% mdisk`
 - `% sudo chmod 777 -R /media/`
-- `% sudo chmod 755 -R /home/ubuntu`
+- `% sudo chmod 755 -R /home/ubuntu/`
 - `% chmod 700 ~/.ssh`
 - `% cd ~/.ssh && chmod 600 authorized_keys`
 
@@ -110,7 +109,7 @@
 >	`vfs objects = catia fruit streams_xattr`<br>
 >	`fruit:aapl = yes`<br>
 
-- `% sudo smbpasswd -a pi`
+- `% sudo smbpasswd -a ubuntu`
 
 
 
@@ -165,12 +164,22 @@
 - `% chmod +x ./auto-install.sh`
 - `% sudo ./auto-install.sh`
 - `% sudo connectd_installer`
-- `% `
 
 
 
 
-
+### Compiling `fish-shell`
+- `$ git clone --depth 1 https://github.com/fish-shell/fish/shell`
+- `$ cd fish-shell`
+- `$ mkdir build && cd build`
+- `$ cmake ..`
+- `$ make`
+- `$ sudo make install`
+- `$ echo /usr/local/bin/fish | sudo tee -a /etc/shells`
+- `$ chsh -s $(which fish) $whoami`
+- `$ fish`
+- `$ source ~/.config/fish/functions/fish_prompt.fish`
+- `% cd setup`
 
 ### Panel applets
 
