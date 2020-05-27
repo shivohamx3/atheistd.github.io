@@ -3,6 +3,10 @@
 ### First setup
 
 - `$ ssh ubuntu@8.0.0.4`
+- `$ sudo reboot +0`
+- ` ╰─> ssh-keygen -t rsa -b 4096`
+- ` ╰─> scp ~/.ssh/id_rsa.pub ubuntu@8.0.0.4:/home/ubuntu/.ssh/ringmaster.pub`
+- `$ cd .ssh && cat ringmaster.pub >> authorized_keys`
 - `$ sudo nano /etc/hostname`
 - `$ sudo reboot +0`
 - `$ snap list`
@@ -10,9 +14,7 @@
 - `$ sudo apt autoremove --purge snapd`
 - `$ sudo apt update && sudo apt full-upgrade`
 - `$ sudo reboot +0`
-- ` ╰─> ssh-keygen -t rsa -b 4096`
-- ` ╰─> scp ~/.ssh/id_rsa.pub ubuntu@8.0.0.4:/home/ubuntu/.ssh/ringmaster.pub`
-- `$ cd .ssh && cat ringmaster.pub >> authorized_keys`
+
 
 
 
