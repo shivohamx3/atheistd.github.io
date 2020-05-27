@@ -69,6 +69,8 @@
 - `% mdisk`
 - `% sudo chmod 777 -R /media/`
 - `% sudo chmod 755 -R /home/ubuntu`
+- `% chmod 700 ~/.ssh`
+- `% cd ~/.ssh && chmod 600 authorized_keys`
 
 
 
