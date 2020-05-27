@@ -3,6 +3,7 @@
 ### First setup
 
 - `$ ssh ubuntu@8.0.0.4`
+- `$ sudo nano /etc/hostname`
 - `$ sudo reboot +0`
 - `$ snap list`
 - `$ snap remove <packages>`
@@ -52,6 +53,7 @@
 - `$ mkdir -p ~/.config/fish/functions/`
 - `$ mv ~/fish_prompt/*.fish ~/.config/fish/functions/`
 - `$ mv ~/setup/sentinel/*.sh ~/`
+- `$ mv ~/setup/sentinel/*.fish ~/.config/fish/functions/`
 - `$ chmod -v +x ~/.config/fish/functions/*.fish`
 - `$ fish`
 - `$ source ~/.config/fish/functions/fish_prompt.fish`
@@ -64,13 +66,13 @@
 - `% cd /media && sudo mkdir heathenDisk`
 - `% mdisk`
 - `% sudo chmod 777 -R /media/`
-- `% sudo chmod 777 -R /home/pi`
+- `% sudo chmod 777 -R /home/ubuntu`
 
 
 
 ### Setup vnc-startup & grant read-only permission to `apache`
 
-- `% cd && sudo chmod -v u=rwx,g=rx,o=r init.sh pi_init.sh`
+- `% cd ~/ && sudo chmod -v u=rwx,g=rx,o=r init.sh pi_init.sh`
 - `% mkdir init`
 - `% mv init.sh init/init.sh`
 - `% sudo mv pi_init.sh /etc/init.d/pi_init.sh`
@@ -96,7 +98,7 @@
 >`[pi]`<br>
 >	`guest ok = no`<br>
 >	`comment = d-home`<br>
->	`path = /home/pi`<br>
+>	`path = /home/ubuntu`<br>
 >	`browseable = yes`<br>
 >	`writeable = yes`<br>
 >	`create mask = 0700`<br>
@@ -121,7 +123,7 @@
 >	`Require all granted`<br>
 >`</Directory>`<br>
 >
->`<Directory /home/pi>`<br>
+>`<Directory /home/ubuntu>`<br>
 >	`Options Indexes FollowSymLinks`<br>
 >	`AllowOverride None`<br>
 >	`Require all granted`<br>
@@ -135,7 +137,7 @@
 >
 >`<VirtualHost *:666>`<br>
 >	`ServerAdmin webmaster@localhost`<br>
->	`DocumentRoot /home/pi`<br>
+>	`DocumentRoot /home/ubuntu`<br>
 >`</VirtualHost>`<br>
 
 - `% sudo nano /etc/lighttpd/lighttpd.conf`
@@ -155,7 +157,14 @@
 
 ### [remote.it](http://remote.it/) set-up
 
+- `% curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
+- `% chmod +x ./auto-install.sh`
+- `% sudo ./auto-install.sh`
 - `% sudo connectd_installer`
+- `% `
+
+
+
 
 
 
