@@ -1,5 +1,8 @@
 # Setup *sentinel* ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/sentinel/sentinel.jpg)
 
+
+
+
 ### First setup
 
 - `$ ssh ubuntu@8.0.0.4`
@@ -40,6 +43,7 @@
 
 
 
+
 ### Installing necessary packages
 
 - `$ vncserver -geometry 1920x1080`
@@ -73,6 +77,7 @@
 
 
 
+
 ### Setup vnc-startup & grant read-only permission to `apache`
 
 - `% cd ~/ && sudo chmod -v u=rwx,g=rx,o=r init.sh pi_init.sh`
@@ -80,6 +85,7 @@
 - `% mv init.sh init/init.sh`
 - `% sudo mv pi_init.sh /etc/init.d/pi_init.sh`
 - `% sudo update-rc.d pi_init.sh defaults`
+
 
 
 
@@ -110,6 +116,7 @@
 >	`fruit:aapl = yes`<br>
 
 - `% sudo smbpasswd -a ubuntu`
+
 
 
 
@@ -150,11 +157,13 @@
 
 
 
+
 ### Setup python environment
 
 - `% python3 -m venv custom`
 - `% startpy`
 - `% pip3 install numpy gpiozero RPi.GPIO matplotlib ipython`
+
 
 
 
@@ -181,6 +190,9 @@
 - `$ source ~/.config/fish/functions/fish_prompt.fish`
 - `% cd setup`
 
+
+
+
 ### Panel applets
 
 - System Tray
@@ -192,4 +204,3 @@
 - CPU Usage Monitor
 - CPU Temperature Monitor
 - Spacer
-
