@@ -11,6 +11,7 @@
 - ` ╰─> scp ~/.ssh/ringmaster.pub ubuntu@8.0.0.4:/home/ubuntu/.ssh/ringmaster.pub`
 - `$ cd ~/.ssh && cat ringmaster.pub >> authorized_keys`
 - `$ sudo nano /etc/hostname`
+- `$ sudo nano /etc/hosts`
 - `$ sudo reboot +0`
 - `$ sudo systemctl stop snapd.service`
 - `$ sudo systemctl disable snapd.service`
