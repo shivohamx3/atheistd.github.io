@@ -27,8 +27,12 @@
 ### Brew
 
 - [`install script`](https://brew.sh/)
-- `% brew install cowsay ffmpeg fish fortune glances htop neofetch speedtest-cli ssh-copy-id wget`
+- `% brew install cowsay ffmpeg fish fortune glances htop lolcat neofetch speedtest-cli ssh-copy-id wget`
 
+
+
+### Python set-up
+`% touch ~/.hushlogin`
 
 
 ### Python set-up
@@ -53,7 +57,7 @@
 
 ### `fish_config.fish`
 
-- `% git clone --depth 1 https://github.com/atheistd/setup ~/Documents/setup`
+- `% git clone --depth 1 git@github.com:atheistd/setup ~/Documents/setup`
 - `% mkdir -p ~/.config/fish/functions/`
 - `% cp ~/Documents/setup/ringmaster/*.fish ~/.config/fish/functions/`
 - `% chmod -v +x ~/.config/fish/functions/*.fish`

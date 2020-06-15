@@ -2,7 +2,8 @@
 
 ### Removing `snapd` and other junk.
 
-- `$ sudo apt autoremove --purge snapd -y `
+- `$ sudo systemctl stop snapd.service`
+- `$ sudo systemctl disable snapd.service`
 - ```$ apt list --installed | grep gnome thunderbird aisleriot cheese deja-dup libreoffice rhythmbox remmina seahorse shotwell simple-scan```
 - `$ sudo reboot`
 - `$ sudo apt update && sudo apt upgrade`
@@ -50,7 +51,7 @@
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 - `$ chsh -s $(which fish) $whoami`
-- `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
+- `$ git clone --depth 1 git@github.com:atheistd/setup ~/setup`
 - `$ mkdir -p ~/.config/fish/`
 - `$ mv ~/setup/sentinel/config.fish ~/.config/fish/ && chmod +x ~/.config/fish/config.fish`
 - `$ mv ~/setup/flameboi/*.fish ~/.config/fish/config.fish && chmod +x ~/.config/fish/*.fish`

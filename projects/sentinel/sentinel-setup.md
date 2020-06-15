@@ -8,13 +8,12 @@
 - `$ ssh ubuntu@8.0.0.4`
 - `$ sudo reboot +0`
 - ` ╰─> ssh-keygen -t rsa -b 4096`
-- ` ╰─> scp ~/.ssh/id_rsa.pub ubuntu@8.0.0.4:/home/ubuntu/.ssh/ringmaster.pub`
+- ` ╰─> scp ~/.ssh/ringmaster.pub ubuntu@8.0.0.4:/home/ubuntu/.ssh/ringmaster.pub`
 - `$ cd ~/.ssh && cat ringmaster.pub >> authorized_keys`
 - `$ sudo nano /etc/hostname`
 - `$ sudo reboot +0`
-- `$ snap list`
-- `$ snap remove <packages>`
-- `$ sudo apt autoremove --purge snapd`
+- `$ sudo systemctl stop snapd.service`
+- `$ sudo systemctl disable snapd.service`
 - `$ sudo apt update && sudo apt full-upgrade`
 - `$ sudo reboot +0`
 
@@ -55,8 +54,8 @@
 - `$ git config --global core.editor nano`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
-- `$ git clone --depth 1 https://github.com/atheistd/setup ~/setup`
-- `$ git clone --depth 1 https://github.com/atheistd/fish_prompt ~/fish_prompt`
+- `$ git clone --depth 1 git@github.com:atheistd/setup ~/setup`
+- `$ git clone --depth 1 git@github.com:atheistd/fish_prompt ~/fish_prompt`
 - `$ mkdir -p ~/.config/fish/functions/`
 - `$ mv ~/fish_prompt/*.fish ~/.config/fish/functions/`
 - `$ mv ~/setup/sentinel/*.sh ~/`
@@ -178,7 +177,7 @@
 
 
 ### Compiling `fish-shell`
-- `$ git clone --depth 1 https://github.com/fish-shell/fish/shell`
+- `$ git clone --depth 1 https://github.com/fish-shell/fish-shell`
 - `$ cd fish-shell`
 - `$ mkdir build && cd build`
 - `$ cmake ..`
