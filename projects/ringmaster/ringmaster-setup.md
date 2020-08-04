@@ -55,6 +55,15 @@
 - `% git config --global core.editor nano`
 
 
+
+### Install FiraCode
+- `% cd ~/Documents/FiraCode`
+- `% git pull`
+- `% cd FiraCode/distr/ttf`
+- `% cp *.* ~/Library/Fonts`
+
+
+
 ### `fish_config.fish`
 
 - `% git clone --depth 1 git@github.com:atheistd/setup ~/Documents/setup`
