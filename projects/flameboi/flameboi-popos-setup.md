@@ -1,4 +1,4 @@
-# Setup *flameboi!* (Ubuntu 18.04) ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/flameboi/flameboi-small.png)
+# Setup *flameboi!* (Pop_OS) ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/flameboi/flameboi-small.png)
 
 ### Removing `snapd` and other junk.
 
@@ -7,6 +7,7 @@
 - ```$ apt list --installed | grep gnome thunderbird aisleriot cheese deja-dup libreoffice rhythmbox remmina seahorse shotwell simple-scan```
 - `$ sudo reboot`
 - `$ sudo apt update && sudo apt upgrade`
+- `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 - `$ sudo passwd`
 - `$ sudo apt install openssh-server -y`
 - `$ sudo reboot`
