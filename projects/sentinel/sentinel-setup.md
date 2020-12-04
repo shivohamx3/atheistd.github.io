@@ -24,7 +24,7 @@
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
 - `$ git config --global credential.helper store`
-- `$ git config --global core.editor nano`
+- `$ git config --global core.editor vim`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 
@@ -73,7 +73,7 @@ mount --uuid 7fc85a61-e23a-456b-9ab7-a8733a13426e /heathen_nd
 
 ### SMB set-up
 
-- `% sudo nano /etc/samba/smb.conf`
+- `% sudo vim /etc/samba/smb.conf`
 > `[heathen]`<br>
 > 	`guest ok = no`<br>
 >	`comment = heathen_nd`<br>
@@ -108,11 +108,11 @@ mount --uuid 7fc85a61-e23a-456b-9ab7-a8733a13426e /heathen_nd
 
 ### `apache2` & `lighttpd` set-up
 
-- `% sudo nano /etc/apache2/ports.conf`
+- `% sudo vim /etc/apache2/ports.conf`
 > `Listen 80`<br>
 > `Listen 666`
 
-- `% sudo nano /etc/apache2/apache2.conf`
+- `% sudo vim /etc/apache2/apache2.conf`
 >`<Directory /heathen_nd>`<br>
 >	`Options Indexes FollowSymLinks`<br>
 >	`AllowOverride None`<br>
@@ -125,7 +125,7 @@ mount --uuid 7fc85a61-e23a-456b-9ab7-a8733a13426e /heathen_nd
 >	`Require all granted`<br>
 >`</Directory>`<br>
 
-- `% sudo nano /etc/apache2/sites-available/000-default.conf`
+- `% sudo vim /etc/apache2/sites-available/000-default.conf`
 >`<VirtualHost *:80>`<br>
 >	`ServerAdmin webmaster@localhost`<br>
 >	`DocumentRoot /heathen_nd`<br>
@@ -136,7 +136,7 @@ mount --uuid 7fc85a61-e23a-456b-9ab7-a8733a13426e /heathen_nd
 >	`DocumentRoot /home/pi`<br>
 >`</VirtualHost>`<br>
 
-- `% sudo nano /etc/lighttpd/lighttpd.conf`
+- `% sudo vim /etc/lighttpd/lighttpd.conf`
 >`server.port = 200`
 
 - `% rsmbd && rapached && rlighttpd`
