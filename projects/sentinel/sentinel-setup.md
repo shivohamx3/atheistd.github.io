@@ -9,7 +9,7 @@
 - ` ╰─> ssh-keygen -t rsa -b 4096` `sentinel`
 - ` ╰─> ssh-copy-id -i ~/.ssh/sentinel.pub pi@8.0.0.4`
 - `$ ssh pi@8.0.0.4`
-- `$ sudo apt update && sudo apt upgrade`
+- `$ sudo apt update && sudo apt upgrade -y`
 - `$ sudo raspi-config`
 - `$ sudo reboot +0`
 
@@ -19,7 +19,7 @@
 ### Installing necessary packages
 
 - `$ vncserver -geometry 1920x1080`
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget zsh youtube-dl zfs-fuse`
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget youtube-dl zfs-fuse zsh -y`
 - `$ sudo apt install gcc cmake libncurses5 libncurses5-dev build-essential -y`
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
