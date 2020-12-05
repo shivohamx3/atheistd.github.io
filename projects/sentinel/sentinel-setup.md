@@ -18,30 +18,14 @@
 
 ### Installing necessary packages
 
-- `$ vncserver -geometry 1920x1080`
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget youtube-dl zfs-fuse zsh -y`
+- ` ╰─> vncserver -geometry 1920x1080`
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget youtube-dl zsh -y`
+- `$ sudo apt install build-essential autoconf automake libtool gawk alien fakeroot dkms libblkid-dev uuid-dev libudev-dev libssl-dev zlib1g-dev libaio-dev libattr1-dev libelf-dev raspberrypi-kernel-headers python3 python3-dev python3-setuptools python3-cffi libffi-dev`
 - `$ sudo apt install gcc cmake libncurses5 libncurses5-dev build-essential -y`
-- `$ curl -sSL https://install.pi-hole.net | bash`
-- `$ pihole -a -p`
-- `$ git config --global credential.helper store`
-- `$ git config --global core.editor vim`
-- `$ git config --global user.name "YOUR NAME"`
-- `$ git config --global user.email "YOUR EMAIL"`
 
 
 
-
-
-### Setup smb disks and directories' permissions
-
-- `% sudo chmod 770 -R /heathen_nd`
-- `% sudo usermod -a -G www-data pi`
-- `% sudo chown -R -f pi:www-data /heathen_nd`
-
-
-
-
-### Setup vnc-startup & grant read-only permission to `apache`
+### Setup vnc-startup
 
 - `% vim atheistd_startup.sh `<br>
 
@@ -60,12 +44,76 @@
 ### END INIT INFO
 
 runuser -l pi -c "vncserver -geometry 1920x1080"
-echo "$now" >> /home/pi/log.txt
-mount --uuid 7fc85a61-e23a-456b-9ab7-a8733a13426e /heathen_nd
+now=$(date)
+echo "$now" >> /home/pi/startup_time.txt
+zpool import 2700552423667074417
 ```
 
 - `% chmod +x atheistd_startup.sh`
 - `% sud mv atheistd_startup.sh /etc/init.d/atheistd_startup/sh`
+- `% sudo update-rc.d atheistd_startup.sh defaults`
+
+
+
+### Compiling ZFS
+
+- `$ git clone https://github.com/openzfs/zfs`
+- `$ cd ./zfs`
+- `$ git checkout master`
+- `$ sh autogen.sh`
+- `$ ./configure`
+- `$ make -s -j$(nproc)`
+- `$ sudo make install; sudo ldconfig; sudo depmod`
+- `$ sudo systemctl enable zfs.target`
+- `$ sudo reboot +0`
+
+
+
+
+### Setup smb disks and directories' permissions
+
+- `% sudo chmod 770 -R /heathen_nd`
+- `% sudo usermod -a -G www-data pi`
+- `% sudo chown -R -f pi:www-data /heathen_nd`
+
+
+### Setup pi-hole
+- `$ curl -sSL https://install.pi-hole.net | bash`
+- `$ pihole -a -p`
+
+
+### Setup git
+- `$ git config --global credential.helper store`
+- `$ git config --global core.editor vim`
+- `$ git config --global user.name "YOUR NAME"`
+- `$ git config --global user.email "YOUR EMAIL"`
+
+### Setup vnc-startup
+
+- `% vim atheistd_startup.sh `<br>
+
+*atheistd_startup.sh*
+```#!/bin/sh
+
+# /etc/init.d/atheistd_startup.sh
+### BEGIN INIT INFO
+# Provides:          atheistd_startup.sh
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
+### END INIT INFO
+
+runuser -l pi -c "vncserver -geometry 1920x1080"
+now=$(date)
+echo "$now" >> /home/pi/startup_time.txt
+zpool import 2700552423667074417
+```
+
+- `% chmod +x atheistd_startup.sh`
+- `% sudo mv atheistd_startup.sh /etc/init.d/atheistd_startup/sh`
 - `% sudo update-rc.d atheistd_startup.sh defaults`
 
 
@@ -101,6 +149,26 @@ mount --uuid 7fc85a61-e23a-456b-9ab7-a8733a13426e /heathen_nd
 >	`create mask = 0700`<br>
 >	`directory mask = 0700`<br>
 
+*/etc/samba/smb.conf*
+```[heathen]
+	guest ok = no
+	comment = heathen_nd
+	path = /heathen_nd
+	browseable = yes
+	writeable = yes
+	create mask = 0700
+	directory mask = 0700
+
+[pi]
+	guest ok = no
+	comment = home
+	path = /home/pi
+	browseable = yes
+	writeable = yes
+	create mask = 0700
+	directory mask = 0700
+```
+
 - `% sudo smbpasswd -a pi`
 
 
@@ -124,6 +192,21 @@ mount --uuid 7fc85a61-e23a-456b-9ab7-a8733a13426e /heathen_nd
 >	`AllowOverride None`<br>
 >	`Require all granted`<br>
 >`</Directory>`<br>
+
+*/etc/apache2/ports.conf*
+```
+<Directory /heathen_nd>
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Require all granted
+</Directory>
+
+<Directory /home/pi>
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Require all granted
+</Directory>
+```
 
 - `% sudo vim /etc/apache2/sites-available/000-default.conf`
 >`<VirtualHost *:80>`<br>
