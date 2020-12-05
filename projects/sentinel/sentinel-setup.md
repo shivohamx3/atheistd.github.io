@@ -19,7 +19,7 @@
 ### Installing necessary packages
 
 - ` ╰─> vncserver -geometry 1920x1080`
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission wget youtube-dl zsh -y`
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zsh -y`
 - `$ sudo apt install build-essential autoconf automake libtool gawk alien fakeroot dkms libblkid-dev uuid-dev libudev-dev libssl-dev zlib1g-dev libaio-dev libattr1-dev libelf-dev raspberrypi-kernel-headers python3 python3-dev python3-setuptools python3-cffi libffi-dev`
 - `$ sudo apt install gcc cmake libncurses5 libncurses5-dev build-essential -y`
 
