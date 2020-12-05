@@ -27,10 +27,9 @@
 
 ### Setup vnc-startup
 
-- `% vim atheistd_startup.sh `<br>
-
 *atheistd_startup.sh*
-```#!/bin/sh
+```
+#!/bin/sh
 
 # /etc/init.d/atheistd_startup.sh
 ### BEGIN INIT INFO
@@ -88,40 +87,12 @@ zpool import 2700552423667074417
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 
-### Setup vnc-startup
 
-- `% vim atheistd_startup.sh `<br>
-
-*atheistd_startup.sh*
-```#!/bin/sh
-
-# /etc/init.d/atheistd_startup.sh
-### BEGIN INIT INFO
-# Provides:          atheistd_startup.sh
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Start daemon at boot time
-# Description:       Enable service provided by daemon.
-### END INIT INFO
-
-runuser -l pi -c "vncserver -geometry 1920x1080"
-now=$(date)
-echo "$now" >> /home/pi/startup_time.txt
-zpool import 2700552423667074417
-```
-
-- `% chmod +x atheistd_startup.sh`
-- `% sudo mv atheistd_startup.sh /etc/init.d/atheistd_startup/sh`
-- `% sudo update-rc.d atheistd_startup.sh defaults`
 
 
 
 
 ### SMB set-up
-
-- `% sudo vim /etc/samba/smb.conf`
 
 */etc/samba/smb.conf*
 ```
@@ -151,11 +122,11 @@ zpool import 2700552423667074417
 
 ### `apache2` & `lighttpd` set-up
 
-- `% sudo vim /etc/apache2/ports.conf`
-> `Listen 80`<br>
-> `Listen 666`
-
-- `% sudo vim /etc/apache2/apache2.conf`
+*/etc/apache2/ports.conf*
+```
+Listen 80
+Listen 666
+```
 
 */etc/apache2/ports.conf*
 ```
@@ -172,7 +143,6 @@ zpool import 2700552423667074417
 </Directory>
 ```
 
-- `% sudo vim /etc/apache2/sites-available/000-default.conf`
 
 */etc/apache2/sites-available/000-default.conf*
 ```
@@ -187,8 +157,10 @@ zpool import 2700552423667074417
 </VirtualHost>
 ```
 
-- `% sudo vim /etc/lighttpd/lighttpd.conf`
->`server.port = 200`
+*/etc/lighttpd/lighttpd.conf*
+```
+server.port = 200
+```
 
 - `% rsmbd && rapached && rlighttpd`
 
