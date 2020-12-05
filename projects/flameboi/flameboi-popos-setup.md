@@ -35,7 +35,7 @@
 
 ### Install necessary packages
 
-- ```$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop libpam-google-authenticator nload samba samba-common-bin smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zsh```
+- ```$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop libpam-google-authenticator nload samba samba-common-bin smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zsh zfsutils-linux -y```
 
 
 
@@ -88,7 +88,7 @@ Do you want to enable rate-limiting? (y/n) y`
 > `auth required pam_google_authenticator.so`
 
 - `% sudo vim /etc/ssh/sshd_config`
-<b>remove</b>`ChallengeResponseAuthentication no`
+<b>remove</b> `ChallengeResponseAuthentication no`
 `ChallengeResponseAuthentication yes`
 
 - `% sudo systemctl restart sshd`
