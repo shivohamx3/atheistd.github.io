@@ -122,35 +122,10 @@ zpool import 2700552423667074417
 ### SMB set-up
 
 - `% sudo vim /etc/samba/smb.conf`
-> `[heathen]`<br>
-> 	`guest ok = no`<br>
->	`comment = heathen_nd`<br>
->	`path = /heathen_nd`<br>
->	`browseable = yes`<br>
->	`writeable = yes`<br>
->	`create mask = 0700`<br>
->	`directory mask = 0700`<br>
-<br>
-> `[heathen_guest]`<br>
-> 	`guest ok = yes`<br>
->	`comment = heathen-guest`<br>
->	`path = /heathen_nd`<br>
->	`browseable = yes`<br>
->	`writeable = yes`<br>
->	`create mask = 0444`<br>
->	`directory mask = 0444`<br>
-<br>
->`[pi]`<br>
->	`guest ok = no`<br>
->	`comment = home`<br>
->	`path = /home/pi`<br>
->	`browseable = yes`<br>
->	`writeable = yes`<br>
->	`create mask = 0700`<br>
->	`directory mask = 0700`<br>
 
 */etc/samba/smb.conf*
-```[heathen]
+```
+[heathen]
 	guest ok = no
 	comment = heathen_nd
 	path = /heathen_nd
@@ -181,17 +156,6 @@ zpool import 2700552423667074417
 > `Listen 666`
 
 - `% sudo vim /etc/apache2/apache2.conf`
->`<Directory /heathen_nd>`<br>
->	`Options Indexes FollowSymLinks`<br>
->	`AllowOverride None`<br>
->	`Require all granted`<br>
->`</Directory>`<br>
->
->`<Directory /home/pi>`<br>
->	`Options Indexes FollowSymLinks`<br>
->	`AllowOverride None`<br>
->	`Require all granted`<br>
->`</Directory>`<br>
 
 */etc/apache2/ports.conf*
 ```
@@ -209,15 +173,19 @@ zpool import 2700552423667074417
 ```
 
 - `% sudo vim /etc/apache2/sites-available/000-default.conf`
->`<VirtualHost *:80>`<br>
->	`ServerAdmin webmaster@localhost`<br>
->	`DocumentRoot /heathen_nd`<br>
->`</VirtualHost>`
->
->`<VirtualHost *:666>`<br>
->	`ServerAdmin webmaster@localhost`<br>
->	`DocumentRoot /home/pi`<br>
->`</VirtualHost>`<br>
+
+*/etc/apache2/sites-available/000-default.conf*
+```
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+	DocumentRoot /heathen_nd
+</VirtualHost>
+
+<VirtualHost *:666>
+	ServerAdmin webmaster@localhost
+	DocumentRoot /home/pi
+</VirtualHost>
+```
 
 - `% sudo vim /etc/lighttpd/lighttpd.conf`
 >`server.port = 200`
