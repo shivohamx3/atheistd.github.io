@@ -54,6 +54,7 @@ zpool import 2700552423667074417
 
 
 
+
 ### Compiling ZFS
 
 - `$ git clone https://github.com/openzfs/zfs`
@@ -76,9 +77,13 @@ zpool import 2700552423667074417
 - `% sudo chown -R -f pi:www-data /heathen_nd`
 
 
+
+
 ### Setup pi-hole
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p`
+
+
 
 
 ### Setup git
@@ -86,8 +91,6 @@ zpool import 2700552423667074417
 - `$ git config --global core.editor vim`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
-
-
 
 
 
