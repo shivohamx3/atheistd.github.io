@@ -4,10 +4,11 @@
 - ` ╰─> cd .ssh`
 - ` ╰─> ssh-keygen -t rsa -b 4096` `sentinel`
 - ` ╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
-- `$ ssh ubuntu@192.168.1.104`
+
 - `$ sudo systemctl stop snapd.service`
 - `$ sudo systemctl disable snapd.service`
 - `$ sudo reboot +0`
+
 - `$ sudo apt update && sudo apt upgrade -y`
 - `$ sudo vim /etc/hostname`
 - `$ sudo vim /etc/hosts`
@@ -34,37 +35,9 @@ startxfce4 &
 - ` ╰─> vncserver -geometry 1920x1080`
 <<<<<<< HEAD
 - `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh -y`
-- `$ eval `ssh-agent -s``
-=======
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zsh -y`
-- `$ sudo apt install build-essential autoconf automake libtool gawk alien fakeroot dkms libblkid-dev uuid-dev libudev-dev libssl-dev zlib1g-dev libaio-dev libattr1-dev libelf-dev raspberrypi-kernel-headers python3 python3-dev python3-setuptools python3-cffi libffi-dev`
-- `$ sudo apt install gcc cmake libncurses5 libncurses5-dev build-essential -y`
+- ```$ eval `ssh-agent -s` ```
 
 
->>>>>>> e99df51118850d4256d28175834a0c8e61c58033
-
-### Setup vnc-startup
-*atheistd_startup.sh*
-```
-#!/bin/sh
-# /etc/init.d/atheistd_startup.sh
-### BEGIN INIT INFO
-# Provides:          atheistd_startup.sh
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Start daemon at boot time
-# Description:       Enable service provided by daemon.
-### END INIT INFO
-runuser -l pi -c "vncserver -geometry 1920x1080"
-now=$(date)
-echo "$now" >> /home/pi/startup_time.txt
-zpool import 2700552423667074417
-```
-- `% chmod +x atheistd_startup.sh`
-- `% sud mv atheistd_startup.sh /etc/init.d/atheistd_startup/sh`
-- `% sudo update-rc.d atheistd_startup.sh defaults`
 
 
 ### Setup smb disks and directories' permissions
@@ -101,7 +74,7 @@ zpool import 2700552423667074417
 	create mask = 0700
 	directory mask = 0700
 ```
-- `% sudo smbpasswd -a pi`
+- `% sudo smbpasswd -a ubuntu`
 
 ### `apache2` & `lighttpd` set-up
 */etc/apache2/ports.conf*
@@ -137,7 +110,10 @@ Listen 666
 ```
 server.port = 200
 ```
-- `% rsmbd && rapached && rlighttpd`
+- `$ sudo /etc/init.d/lighttpd restart` (lighttpd)
+- `$ sudo systemctl restart apache2` (apache2)
+- `$ sudo systemctl restart smbd` (samba)
+
 
 ### Setup python environment
 - `% python3 -m venv custom`
@@ -149,17 +125,6 @@ server.port = 200
 - `% chmod +x ./auto-install.sh`
 - `% sudo ./auto-install.sh`
 - `% sudo connectd_installer`
-
-### Compiling `fish-shell`
-- `$ git clone --depth 1 https://github.com/fish-shell/fish-shell`
-- `$ cd fish-shell`
-- `$ mkdir build && cd build`
-- `$ cmake ..`
-- `$ make`
-- `$ sudo make install`
-- `$ echo /usr/local/bin/fish | sudo tee -a /etc/shells`
-- `$ chsh -s $(which fish) $whoami`
-- `$ fish`
 
 ### Panel applets
 - System Tray
