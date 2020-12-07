@@ -161,6 +161,8 @@ server.port = 200
 
 su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 ```
+- `$ sudo chmod +x /etc/init.d/pi_init.sh`
+- `$ cd /etc/init.d/ && sudo update-rc.d pi_init.sh defaults`
 
 - `$ sudo crontab -e`
 
