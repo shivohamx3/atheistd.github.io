@@ -32,8 +32,16 @@ startxfce4 &
 
 ### Installing necessary packages
 - ` ╰─> vncserver -geometry 1920x1080`
+<<<<<<< HEAD
 - `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh -y`
 - `$ eval `ssh-agent -s``
+=======
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox-esr git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zsh -y`
+- `$ sudo apt install build-essential autoconf automake libtool gawk alien fakeroot dkms libblkid-dev uuid-dev libudev-dev libssl-dev zlib1g-dev libaio-dev libattr1-dev libelf-dev raspberrypi-kernel-headers python3 python3-dev python3-setuptools python3-cffi libffi-dev`
+- `$ sudo apt install gcc cmake libncurses5 libncurses5-dev build-essential -y`
+
+
+>>>>>>> e99df51118850d4256d28175834a0c8e61c58033
 
 ### Setup vnc-startup
 *atheistd_startup.sh*

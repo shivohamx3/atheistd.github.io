@@ -1,10 +1,17 @@
 # Setup *flameboi!* (Pop_OS) ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/flameboi/flameboi-small.png)
+<<<<<<< HEAD
 ### Removing `snapd` and other junk.
 - `$ sudo systemctl stop snapd.service`
 - `$ sudo systemctl disable snapd.service`
 - ```$ apt list --installed | grep gnome thunderbird aisleriot cheese deja-dup libreoffice rhythmbox remmina seahorse shotwell simple-scan```
 - `$ sudo reboot`
 - `$ sudo apt update && sudo apt upgrade`
+=======
+
+### Installing necessary packages
+
+- `$ sudo apt update && sudo apt upgrade -y`
+>>>>>>> e99df51118850d4256d28175834a0c8e61c58033
 - `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 - `$ sudo passwd`
 - `$ sudo apt install openssh-server -y`
@@ -13,8 +20,8 @@
 ### `gnome` extensions
 - `$ sudo apt install gnome-shell-extensions -y`
 * [Chromium extension](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
-* [RunCat](https://extensions.gnome.org/extension/2986/runcat/)
 * [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
+<<<<<<< HEAD
 * [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 * [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 > - Add `terminator`, `brave`, `transmission` and `firefox` to Caffeine
@@ -22,9 +29,21 @@
 > - `Caffeine` `RunCat` `Vitals` `Simple net speed`
 ### Install necessary packages
 - ```$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop libpam-google-authenticator nload samba samba-common-bin smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zsh zfsutils-linux -y```
+=======
+
+
+
+### Install necessary packages
+
+- ```$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop libpam-google-authenticator nload smartmontools speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh -y```
+- `$ sudo zpool import 12327394492612946617`
+
+
+
+>>>>>>> e99df51118850d4256d28175834a0c8e61c58033
 ### `git` config
 - `$ git config --global credential.helper store`
-- `$ git config --global core.editor nano`
+- `$ git config --global core.editor vim`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 - `$ chsh -s /usr/bin/fish atheistd`
@@ -56,12 +75,18 @@ Do you want to enable rate-limiting? (y/n) y`
 <b>remove</b> `ChallengeResponseAuthentication no`
 `ChallengeResponseAuthentication yes`
 - `% sudo systemctl restart sshd`
+<<<<<<< HEAD
 - `% `
 - `% `
 - `% `
 - `% `
 - `% `
 - `% `
+=======
+
+
+
+>>>>>>> e99df51118850d4256d28175834a0c8e61c58033
 ### Python, CUDA & cuDNN setup
 * [Install CUDA and cuDNN on Pop!_os](https://support.system76.com/articles/cuda/)
 * [Ubuntu 18.04: Install TensorFlow and Keras for Deep Learning](https://www.pyimagesearch.com/2019/01/30/ubuntu-18-04-install-tensorflow-and-keras-for-deep-learning/)
