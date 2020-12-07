@@ -1,8 +1,11 @@
 # Setup *sentinel* ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/sentinel/sentinel.jpg)
 
-### First setup
+
+
+### First setup + disabling `snapd`
+
 - ` ╰─> cd .ssh`
-- ` ╰─> ssh-keygen -t rsa -b 4096` `sentinel`
+- ` ╰─> ssh-keygen -t rsa -b 4096`
 - ` ╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
 
 - `$ sudo systemctl stop snapd.service`
@@ -15,7 +18,10 @@
 > 127.0.1.1 sentinel.localdomain sentinel
 - `$ sudo reboot +0`
 
-### Install and setup desktop GUI + vnc-server
+
+
+### Install and setup `xfce` + vnc-server
+
 - `$ sudo apt install xfce4 xfce4-goodies -y` (select dgm3)
 - `$ sudo apt install tightvncserver -y`
 - `$ vncserver`
@@ -31,30 +37,43 @@ startxfce4 &
 - `$ sudo reboot +0`
 
 
-### Installing necessary packages
-- ` ╰─> vncserver -geometry 1920x1080`
-<<<<<<< HEAD
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh -y`
-- ```$ eval `ssh-agent -s` ```
 
+### Installing necessary packages
+
+- ` ╰─> vncserver -geometry 1920x1080`
+
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh -y`
+- `$ eval 'ssh-agent -s'`
 
 
 
 ### Setup smb disks and directories' permissions
-- `% sudo chmod 770 -R /heathen_nd`
-- `% sudo chown -R pi:www-data /heathen_nd`
+
+- `$ sudo zpool import`
+- `$ sudo zpool import <pool-id>`
+- `$ sudo chmod 770 -R /heathen_nd`
+- `$ sudo chown -R pi:www-data /heathen_nd`
+
+
 
 ### Setup pi-hole
+
 - `$ curl -sSL https://install.pi-hole.net | bash`
 - `$ pihole -a -p ubuntu`
 
+
+
 ### Setup git
+
 - `$ git config --global credential.helper store`
 - `$ git config --global core.editor vim`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
 
+
+
 ### SMB set-up
+
 */etc/samba/smb.conf*
 ```
 [heathen]
@@ -74,14 +93,19 @@ startxfce4 &
 	create mask = 0700
 	directory mask = 0700
 ```
-- `% sudo smbpasswd -a ubuntu`
+
+- `$ sudo smbpasswd -a ubuntu`
+
+
 
 ### `apache2` & `lighttpd` set-up
+
 */etc/apache2/ports.conf*
 ```
 Listen 80
 Listen 666
 ```
+
 */etc/apache2/apache2.conf*
 ```
 <Directory /heathen_nd>
@@ -95,6 +119,7 @@ Listen 666
 	Require all granted
 </Directory>
 ```
+
 */etc/apache2/sites-available/000-default.conf*
 ```
 <VirtualHost *:80>
@@ -106,33 +131,48 @@ Listen 666
 	DocumentRoot /home/ubuntu
 </VirtualHost>
 ```
+
 */etc/lighttpd/lighttpd.conf*
 ```
 server.port = 200
 ```
+
 - `$ sudo /etc/init.d/lighttpd restart` (lighttpd)
 - `$ sudo systemctl restart apache2` (apache2)
 - `$ sudo systemctl restart smbd` (samba)
 
 
-### Setup python environment
-- `% python3 -m venv custom`
-- `% startpy`
-- `% pip3 install numpy gpiozero RPi.GPIO matplotlib ipython`
+
+### Set startup script
+
+*/etc/init.d/pi_init.sh*
+```
+#!/bin/bash
+# /etc/init.d/pi_init.sh
+### BEGIN INIT INFO
+# Provides:          userstartup.sh
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
+### END INIT INFO
+
+su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
+```
+
+- `$ sudo crontab -e`
+
+```
+30 23 * * * /usr/sbin/zpool scrub heathen_nd
+```
+
+
 
 ### [remote.it](http://remote.it/) set-up
-- `% curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
-- `% chmod +x ./auto-install.sh`
-- `% sudo ./auto-install.sh`
-- `% sudo connectd_installer`
 
-### Panel applets
-- System Tray
-- Ejecter
-- Bluetooth
-- Wireless & Wired Network
-- Volume Control (ALSA/BT)
-- Battery (pi-top / laptop)
-- CPU Usage Monitor
-- CPU Temperature Monitor
-- Spacer
+- `$ curl -LkO https://raw.githubusercontent.com/remoteit/installer/master/scripts/auto-install.sh`
+- `$ chmod +x ./auto-install.sh`
+- `$ sudo ./auto-install.sh`
+- `$ sudo connectd_installer`
