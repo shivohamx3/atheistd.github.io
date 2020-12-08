@@ -14,25 +14,29 @@
 
 
 
-### Installing [Brave Browser](https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux)
+### Installing [Brave Browser](https://brave.com/linux/)
 
 
-### `gnome extensions`
+
+### gnome extensions
 
 - `$ sudo apt install gnome-shell-extensions -y`
 * [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
 
 
+
 ### Installing packages
 
-- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zfsutils-linux zsh -y`
+- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload openssh-server smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zfsutils-linux zsh -y`
 - `$ sudo zpool import`
+
 
 
 ### Generate ssh keys
 - `$ cd ~/.ssh`
 - `$ ssh-keygen -t rsa -b 4096`    *github, gitlab, sentinel*
 - `$ chsh -s /usr/bin/zsh atheistd`
+
 
 
 ### git config
@@ -46,7 +50,7 @@
 
 ### 2FA for ssh
 
-- `% google-authenticator`
+- `$ google-authenticator`
 > `Do you want authentication tokens to be time-based (y/n) y`
 > `Do you want me to update your "/home/pi/.google_authenticator" file? (y/n) y`
 > `Do you want to disallow multiple uses of the same authentication
@@ -66,12 +70,12 @@ Do you want to do so? (y/n) n`
 login attempts, you can enable rate-limiting for the authentication module.
 By default, this limits attackers to no more than 3 login attempts every 30s.
 Do you want to enable rate-limiting? (y/n) y`
-- `% sudo vim /etc/pam.d/sshd`
+- `$ sudo vim /etc/pam.d/sshd`
 > `auth required pam_google_authenticator.so`
-- `% sudo vim /etc/ssh/sshd_config`
+- `$ sudo vim /etc/ssh/sshd_config`
 <b>remove</b> `ChallengeResponseAuthentication no`
 `ChallengeResponseAuthentication yes`
-- `% sudo systemctl restart sshd`
+- `$ sudo systemctl restart sshd`
 
 
 

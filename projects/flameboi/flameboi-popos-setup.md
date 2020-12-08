@@ -50,7 +50,7 @@
 - `$ git clone git@github.com:atheistd/fish_prompt ~/Documents/`
 
 ### 2FA for SSH
-- `% google-authenticator`
+- `$ google-authenticator`
 > `Do you want authentication tokens to be time-based (y/n) y`
 > `Do you want me to update your "/home/pi/.google_authenticator" file? (y/n) y`
 > `Do you want to disallow multiple uses of the same authentication
@@ -70,12 +70,12 @@ Do you want to do so? (y/n) n`
 login attempts, you can enable rate-limiting for the authentication module.
 By default, this limits attackers to no more than 3 login attempts every 30s.
 Do you want to enable rate-limiting? (y/n) y`
-- `% sudo vim /etc/pam.d/sshd`
+- `$ sudo vim /etc/pam.d/sshd`
 > `auth required pam_google_authenticator.so`
-- `% sudo vim /etc/ssh/sshd_config`
+- `$ sudo vim /etc/ssh/sshd_config`
 <b>remove</b> `ChallengeResponseAuthentication no`
 `ChallengeResponseAuthentication yes`
-- `% sudo systemctl restart sshd`
+- `$ sudo systemctl restart sshd`
 
 
 

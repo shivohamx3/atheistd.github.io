@@ -5,7 +5,7 @@
 # atheistd
 ### [Setup `ringmaster`](https://atheistd.github.io/projects/ringmaster/ringmaster-setup)
 ### [Setup `sentinel`](https://atheistd.github.io/projects/sentinel/sentinel-setup)
-### [Setup `flameboi` (Pop_OS)](https://atheistd.github.io/projects/flameboi/flameboi-popos-setup)
+### [Setup `flameboi`](https://atheistd.github.io/projects/flameboi/flameboi-setup)
 
 <br><br>
 <br><br><br><br>
