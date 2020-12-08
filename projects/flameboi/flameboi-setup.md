@@ -1,55 +1,51 @@
-# Setup *flameboi!* (Pop_OS) ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/flameboi/flameboi-small.png)
+# Setup *flameboi!* ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/flameboi/flameboi-small.png)
 
-### Removing `snapd` and other junk.
+
+
+### Disabling `snapd`, updating packages and masking sleep targets
+
 - `$ sudo systemctl stop snapd.service`
 - `$ sudo systemctl disable snapd.service`
-- ```$ apt list --installed | grep gnome thunderbird aisleriot cheese deja-dup libreoffice rhythmbox remmina seahorse shotwell simple-scan```
-- `$ sudo reboot`
-- `$ sudo apt update && sudo apt upgrade`
+- `$ sudo reboot +0`
 
-
-### Installing necessary packages
-
-- `$ sudo apt update && sudo apt upgrade -y`
-
+- `$ sudo apt update`
+- `$ sudo apt upgrade -y`
 - `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
-- `$ sudo passwd`
-- `$ sudo apt install openssh-server -y`
-- `$ sudo reboot`
+
+
+
 ### Installing [Brave Browser](https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux)
-### `gnome` extensions
+
+
+### `gnome extensions`
+
 - `$ sudo apt install gnome-shell-extensions -y`
-* [Chromium extension](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
+* [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
 
 
-* [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
-* [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
-> - Add `terminator`, `brave`, `transmission` and `firefox` to Caffeine
-> - Turn on `Use higher precision` `Hide zero values` in Vitals
-> - `Caffeine` `RunCat` `Vitals` `Simple net speed`
-### Install necessary packages
-- ```$ sudo apt install apache2 conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop libpam-google-authenticator nload samba samba-common-bin smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zsh zfsutils-linux -y```
+### Installing packages
+
+- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zfsutils-linux zsh -y`
+- `$ sudo zpool import`
 
 
+### Generate ssh keys
+- `$ cd ~/.ssh`
+- `$ ssh-keygen -t rsa -b 4096`    *github, gitlab, sentinel*
+- `$ chsh -s /usr/bin/zsh atheistd`
 
 
-### Install necessary packages
+### git config
 
-- ```$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop libpam-google-authenticator nload smartmontools speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh fonts-firacode -y```
-- `$ sudo zpool import 12327394492612946617`
-
-
-
-
-### `git` config
 - `$ git config --global credential.helper store`
 - `$ git config --global core.editor vim`
 - `$ git config --global user.name "YOUR NAME"`
 - `$ git config --global user.email "YOUR EMAIL"`
-- `$ chsh -s /usr/bin/fish atheistd`
-- `$ git clone git@github.com:atheistd/fish_prompt ~/Documents/`
 
-### 2FA for SSH
+
+
+### 2FA for ssh
+
 - `% google-authenticator`
 > `Do you want authentication tokens to be time-based (y/n) y`
 > `Do you want me to update your "/home/pi/.google_authenticator" file? (y/n) y`
@@ -76,7 +72,6 @@ Do you want to enable rate-limiting? (y/n) y`
 <b>remove</b> `ChallengeResponseAuthentication no`
 `ChallengeResponseAuthentication yes`
 - `% sudo systemctl restart sshd`
-
 
 
 
