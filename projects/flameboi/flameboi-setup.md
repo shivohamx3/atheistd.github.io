@@ -34,7 +34,7 @@
 
 ### Generate ssh keys
 - `$ cd ~/.ssh`
-- `$ ssh-keygen -t rsa -b 4096`    *github, gitlab, sentinel*
+- `$ ssh-keygen -t rsa -b 4096`&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab, sentinel*
 - `$ chsh -s /usr/bin/zsh atheistd`
 
 
