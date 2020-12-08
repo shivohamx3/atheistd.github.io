@@ -40,7 +40,7 @@ startxfce4 &
 
 ### Installing necessary packages
 
-- ` ╰─> vncserver -geometry 1920x1080`
+- `$ vncserver -geometry 1920x1080`
 
 - `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh -y`
 - `$ eval 'ssh-agent -s'`
@@ -52,14 +52,14 @@ startxfce4 &
 - `$ sudo zpool import`
 - `$ sudo zpool import <pool-id>`
 - `$ sudo chmod 770 -R /heathen_nd`
-- `$ sudo chown -R pi:www-data /heathen_nd`
+- `$ sudo chown -R ubuntu:www-data /heathen_nd`
 
 
 
 ### Setup pi-hole
 
 - `$ curl -sSL https://install.pi-hole.net | bash`
-- `$ pihole -a -p ubuntu`
+- `$ pihole -a -p`
 
 
 
@@ -167,6 +167,12 @@ su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 ```
 30 23 * * * /usr/sbin/zpool scrub heathen_nd
 ```
+
+- `$ crontab -e`
+```
+0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.torrent /heathen/personal/config_dir/
+```
+
 
 
 
