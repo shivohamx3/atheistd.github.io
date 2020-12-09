@@ -167,7 +167,8 @@ su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 - `$ sudo crontab -e`
 
 ```
-30 23 * * * /usr/sbin/zpool scrub heathen_nd
+30 22 * * 3 /usr/sbin/zpool scrub heathen_nd
+30 22 * * 6 /usr/sbin/zpool scrub heathen_nd
 ```
 
 - `$ crontab -e`
