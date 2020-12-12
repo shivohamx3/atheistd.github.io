@@ -177,6 +177,13 @@ su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 ```
 
 
+### Disable locale env forwarding on ssh
+
+- `$ /etc/ssh/ssh_config`
+
+<b>replac</b> `SendEnv LANG LC_*` with ` # SendEnv LANG LC_*`
+(comment the line out if you didn't understand)
+
 
 
 ### [remote.it](http://remote.it/) set-up
