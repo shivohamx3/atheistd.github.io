@@ -42,7 +42,7 @@ startxfce4 &
 
 - `$ vncserver -geometry 1920x1080`
 
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload samba samba-common-bin speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh -y`
+- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget youtube-dl zfsutils-linux zsh -y`
 - `$ eval 'ssh-agent -s'`
 
 

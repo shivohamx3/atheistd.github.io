@@ -27,7 +27,7 @@
 
 ### Installing packages
 
-- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload openssh-server smartmontools speedtest-cli telegram-desktop terminator transmission wget youtube-dl zfsutils-linux zsh -y`
+- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload openssh-server rar smartmontools speedtest-cli telegram-desktop terminator transmission unrar wget youtube-dl zfsutils-linux zsh -y`
 - `$ sudo zpool import`
 
 
