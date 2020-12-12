@@ -27,7 +27,8 @@
 
 ### Installing packages
 
-- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload openssh-server rar smartmontools speedtest-cli telegram-desktop terminator transmission unrar wget youtube-dl zfsutils-linux zsh -y`
+- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload openssh-server rar smartmontools speedtest-cli telegram-desktop terminator transmission unrar python3 python3-pip wget youtube-dl zfsutils-linux zsh -y`
+- `$ pip3 install instaloader`
 - `$ sudo zpool import`
 
 
