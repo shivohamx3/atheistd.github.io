@@ -49,8 +49,12 @@ startxfce4 &
 
 ### Setup smb disks and directories' permissions
 
-- `$ sudo zpool import`
-- `$ sudo zpool import <pool-id>`
+*/etc/fstab*
+```
+UUID=a81d34d0-0502-48f0-9176-634f5becff2f	/heathen_nd	ext4	defaults,errors=remount-ro	0	1
+```
+
+- `$ sudo mount -a`
 - `$ sudo chmod 770 -R /heathen_nd`
 - `$ sudo chown -R ubuntu:www-data /heathen_nd`
 
@@ -164,16 +168,9 @@ su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 - `$ sudo chmod +x /etc/init.d/pi_init.sh`
 - `$ cd /etc/init.d/ && sudo update-rc.d pi_init.sh defaults`
 
-- `$ sudo crontab -e`
-
-```
-30 22 * * 3 /usr/sbin/zpool scrub heathen_nd
-30 22 * * 6 /usr/sbin/zpool scrub heathen_nd
-```
-
 - `$ crontab -e`
 ```
-0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.torrent /heathen/personal/config_dir/
+0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.torrent /heathen_nd/config_dir/
 ```
 
 
