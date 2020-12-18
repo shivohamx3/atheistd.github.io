@@ -31,8 +31,19 @@
 
 
 
-### Python set-up
+### misc
 `% touch ~/.hushlogin`
+
+
+
+### `git` config
+
+- `% ssh-keygen -t ed25519 -b 4096 `&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab, sentinel*
+
+- `% git config --global user.name "YOUR NAME"`
+- `% git config --global user.email "YOUR EMAIL"`
+- `% git config --global credential.helper osxkeychain`
+- `% git config --global core.editor vim`
 
 
 ### Python set-up
@@ -47,31 +58,11 @@
 
 
 
-### `git` config
-
-- `% git config --global user.name "YOUR NAME"`
-- `% git config --global user.email "YOUR EMAIL"`
-- `% git config --global credential.helper osxkeychain`
-- `% git config --global core.editor nano`
-
-
-
 ### Install FiraCode
 - `% cd ~/Documents/FiraCode`
 - `% git pull`
 - `% cd FiraCode/distr/ttf`
 - `% cp *.* ~/Library/Fonts`
-
-
-
-### `fish_config.fish`
-
-- `% git clone --depth 1 git@github.com:atheistd/setup ~/Documents/setup`
-- `% mkdir -p ~/.config/fish/functions/`
-- `% cp ~/Documents/setup/ringmaster/*.fish ~/.config/fish/functions/`
-- `% chmod -v +x ~/.config/fish/functions/*.fish`
-- `% fish`
-- ` ╰─> source ~/.config/fish/functions/fish_prompt.fish`
 
 
 

@@ -5,7 +5,7 @@
 ### First setup + disabling `snapd`
 
 - ` ╰─> cd .ssh`
-- ` ╰─> ssh-keygen -t rsa -b 4096`
+- ` ╰─> ssh-keygen -t ed25519 -b 4096 `
 - ` ╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
 
 - `$ sudo systemctl stop snapd.service`
