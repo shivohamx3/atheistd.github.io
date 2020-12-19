@@ -5,7 +5,7 @@
 ### First setup + disabling `snapd`
 
 - ` ╰─> cd .ssh`
-- ` ╰─> ssh-keygen -t ed25519 -b 4096 `
+- ` ╰─> ssh-keygen -t ed25519 `
 - ` ╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
 
 - `$ sudo systemctl stop snapd.service`
@@ -43,7 +43,7 @@ startxfce4 &
 - `$ vncserver -geometry 1920x1080`
 
 - `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget youtube-dl zfsutils-linux zsh -y`
-- `$ eval 'ssh-agent -s'`
+- `$ eval "$(ssh-agent -s)"`
 
 
 

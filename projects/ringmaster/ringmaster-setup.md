@@ -38,7 +38,7 @@
 
 ### `git` config
 
-- `% ssh-keygen -t ed25519 -b 4096 `&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab, sentinel*
+- `% ssh-keygen -t ed25519 `&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab, sentinel*
 
 - `% git config --global user.name "YOUR NAME"`
 - `% git config --global user.email "YOUR EMAIL"`
