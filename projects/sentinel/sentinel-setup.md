@@ -42,21 +42,25 @@ startxfce4 &
 
 - `$ vncserver -geometry 1920x1080`
 
-- `$ sudo apt install apache2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget youtube-dl zfsutils-linux zsh -y`
+- `$ sudo apt install apache2 aria2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload python3-pip rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget zfsutils-linux zshpython3 -y`
+
+- `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
+- `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
+
+- `$ pip3 install instaloader bpytop`
+
 - `$ eval "$(ssh-agent -s)"`
 
 
 
-### Setup smb disks and directories' permissions
+### Everything ZFS & disk related
 
-*/etc/fstab*
-```
-UUID=a81d34d0-0502-48f0-9176-634f5becff2f	/heathen_nd	ext4	defaults,errors=remount-ro	0	1
-```
-
-- `$ sudo mount -a`
+- `$ sudo zpool import`
+- `$ sudo zpool import <pool-id>`
 - `$ sudo chmod 770 -R /heathen_nd`
 - `$ sudo chown -R ubuntu:www-data /heathen_nd`
+- `$ echo options usb-storage quirks=1058:25e2:u | sudo tee /etc/modprobe.d/blacklist_uas_357d.conf`
+- `$ sudo reboot +0`
 
 
 
@@ -168,9 +172,15 @@ su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 - `$ sudo chmod +x /etc/init.d/pi_init.sh`
 - `$ cd /etc/init.d/ && sudo update-rc.d pi_init.sh defaults`
 
+- `$ sudo crontab -e`
+```
+30 21 * * 6 /usr/sbin/zpool scrub heathen_nd
+```
+
 - `$ crontab -e`
 ```
-0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.torrent /heathen_nd/config_dir/
+0 * * * * rm -f /heathen_nd/config_dir/*.torrent
+10 * * * * /usr/bin/rsync --archive --checksum --delete /home/ubuntu/.config/deluge/state/ /heathen_nd/config_dir
 ```
 
 

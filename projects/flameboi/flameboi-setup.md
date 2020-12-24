@@ -27,8 +27,13 @@
 
 ### Installing packages
 
-- `$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish fonts-firacode git glances gparted handbrake htop libpam-google-authenticator nload openssh-server rar smartmontools speedtest-cli telegram-desktop terminator transmission unrar python3 python3-pip wget youtube-dl zfsutils-linux zsh -y`
-- `$ pip3 install instaloader`
+- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git handbrake hdparm htop libpam-google-authenticator neofetch nload openssh-server python3 python3-pip qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim vlc wget zfsutils-linux zip zsh -y`
+
+- `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
+- `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
+
+- `$ pip3 install instaloader bpytop`
+
 - `$ sudo zpool import`
 
 
