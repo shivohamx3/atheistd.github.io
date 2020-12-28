@@ -47,7 +47,8 @@ startxfce4 &
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
 
-- `$ pip3 install instaloader bpytop`
+- `$ pip3 install instalooter bpytop`
+- `$ instalooter login`
 
 - `$ eval "$(ssh-agent -s)"`
 

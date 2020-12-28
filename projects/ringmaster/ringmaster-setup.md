@@ -54,7 +54,8 @@
 - `% pip3 install --upgrade pip`
 - `% pip3 install pip-review`
 - `% pip-review --interactive`
-- `% pip3 install ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn tensorflow theano torch torchvision tqdm`
+- `% pip3 install instalooter ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn tensorflow theano torch torchvision tqdm`
+- `% instalooter login`
 
 
 
