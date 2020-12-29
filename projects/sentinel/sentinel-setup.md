@@ -59,8 +59,18 @@ startxfce4 &
 - `$ sudo zpool import`
 - `$ sudo zpool import <pool-id>`
 - `$ sudo chmod 770 -R /heathen_nd`
-- `$ sudo chown -R ubuntu:www-data /heathen_nd`
-- `$ echo options usb-storage quirks=1058:25e2:u | sudo tee /etc/modprobe.d/blacklist_uas_357d.conf`
+- `$ sudo chown -R ubuntu:www-data /heathen_nd`\
+
+- **Check `lsusb` and verify the *idVendor* and *idProduct***
+
+*/etc/modprobe.d/blacklist_uas.conf*
+```
+options usb-storage quirks=1d6b:0003:u
+options usb-storage quirks=1d6b:0002:u
+options usb-storage quirks=2109:3431:u
+options usb-storage quirks=1058:25e2:u
+```
+
 - `$ sudo reboot +0`
 
 
