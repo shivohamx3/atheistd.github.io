@@ -60,7 +60,6 @@ startxfce4 &
 - `$ sudo zpool import <pool-id>`
 - `$ sudo chmod 770 -R /heathen_nd`
 - `$ sudo chown -R ubuntu:www-data /heathen_nd`\
-
 - **Check `lsusb` and verify the *idVendor* and *idProduct***
 
 */etc/modprobe.d/blacklist_uas.conf*
