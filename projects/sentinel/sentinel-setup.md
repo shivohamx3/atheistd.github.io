@@ -1,11 +1,10 @@
-# Setup *sentinel* ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/sentinel/sentinel.jpg)
+# Setup *sentinel* ![sentinel! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/sentinel/sentinel.jpg)
 
 
 
 ### First setup + disabling `snapd`
 
 - ` ╰─> cd .ssh`
-- ` ╰─> ssh-keygen -t ed25519 `
 - ` ╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
 
 - `$ sudo systemctl stop snapd.service`
@@ -13,9 +12,15 @@
 - `$ sudo reboot +0`
 
 - `$ sudo apt update && sudo apt upgrade -y`
-- `$ sudo vim /etc/hostname`
-- `$ sudo vim /etc/hosts`
-> 127.0.1.1 sentinel.localdomain sentinel
+*/etc/hostname*
+```
+prodigium
+```
+*/etc/hosts*
+```
+127.0.1.1 prodigium.localdomain prodigium
+```
+
 - `$ sudo reboot +0`
 
 
@@ -42,7 +47,7 @@ startxfce4 &
 
 - `$ vncserver -geometry 1920x1080`
 
-- `$ sudo apt install apache2 aria2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload python3-pip rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget zfsutils-linux zshpython3 -y`
+- `$ sudo apt install apache2 aria2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload python3 python3-pip rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget zfsutils-linux zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -59,7 +64,7 @@ startxfce4 &
 - `$ sudo zpool import`
 - `$ sudo zpool import <pool-id>`
 - `$ sudo chmod 770 -R /heathen_nd`
-- `$ sudo chown -R ubuntu:www-data /heathen_nd`\
+- `$ sudo chown -R ubuntu:www-data /heathen_nd`
 - **Check `lsusb` and verify the *idVendor* and *idProduct***
 
 */etc/modprobe.d/blacklist_uas.conf*
@@ -184,21 +189,22 @@ su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 
 - `$ sudo crontab -e`
 ```
-30 21 * * 6 /usr/sbin/zpool scrub heathen_nd
+0 0 1,15 * * /usr/sbin/zpool scrub heathen_nd
 ```
 
 - `$ crontab -e`
 ```
-0 * * * * rm -f /heathen_nd/config_dir/*.torrent
-10 * * * * /usr/bin/rsync --archive --checksum --delete /home/ubuntu/.config/deluge/state/ /heathen_nd/config_dir
+0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.* /heathen_nd/config_dir/
 ```
 
 
 ### Disable locale env forwarding on ssh
 
-- `$ /etc/ssh/ssh_config`
+*/etc/ssh/ssh_config*
 
-<b>replac</b> `SendEnv LANG LC_*` with ` # SendEnv LANG LC_*`
+```
+# SendEnv LANG LC_*
+```
 (comment the line out if you didn't understand)
 
 

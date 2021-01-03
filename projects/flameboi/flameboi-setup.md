@@ -2,14 +2,9 @@
 
 
 
-### Disabling `snapd`, updating packages and masking sleep targets
+### Masking sleep targets
 
-- `$ sudo systemctl stop snapd.service`
-- `$ sudo systemctl disable snapd.service`
-- `$ sudo reboot +0`
-
-- `$ sudo apt update`
-- `$ sudo apt upgrade -y`
+- `$ sudo apt update && sudo apt upgrade -y`
 - `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 
 
@@ -40,8 +35,9 @@
 
 
 ### Generate ssh keys
+
 - `$ cd ~/.ssh`
-- `$ ssh-keygen -t ed25519 `&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab, sentinel*
+- `$ ssh-keygen -t ed25519 `&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab, sentinel, prodigium*
 - `$ chsh -s /usr/bin/zsh atheistd`
 
 
@@ -87,14 +83,16 @@ Do you want to do so? (y/n) n`
 login attempts, you can enable rate-limiting for the authentication module.
 By default, this limits attackers to no more than 3 login attempts every 30s.
 Do you want to enable rate-limiting? (y/n) y`
-- `$ sudo vim /etc/pam.d/sshd`
 
+*/etc/pam.d/sshd*
+```
+auth required pam_google_authenticator.so
+```
 
-> `auth required pam_google_authenticator.so`
-- `$ sudo vim /etc/ssh/sshd_config`
-
-<b>remove</b> `ChallengeResponseAuthentication no`
-`ChallengeResponseAuthentication yes`
+*/etc/ssh/sshd_config*
+```
+ChallengeResponseAuthentication yes
+```
 
 - `$ sudo systemctl restart sshd`
 
