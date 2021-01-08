@@ -52,6 +52,7 @@ sudo zfs create grandis/personal/z_pesky
 
 sudo zfs create grandis/work/ml_datasets
 sudo zfs create grandis/work/nix_iso
+
 ```
 
 
@@ -61,12 +62,12 @@ sudo zfs create grandis/work/nix_iso
 ```
 sudo zfs set atime=off grandis
 sudo zfs set checksum=sha512 grandis
-sudo zfs set compression=gzip-9 grandis
-sudo zfs set copies=2 grandis
+sudo zfs set compression=lz4 grandis
 sudo zfs set primarycache=all grandis
 sudo zfs set recordsize=1M grandis
 sudo zfs set snapdir=visible grandis
 sudo zfs set xattr=sa grandis
+
 ```
 
 
@@ -76,6 +77,7 @@ sudo zfs set xattr=sa grandis
 ```
 zpool status -v
 zfs list
+
 ```
 
 
@@ -85,6 +87,7 @@ zfs list
 ```
 sudo chown infidel:infidel -vR /grandis
 sudo chmod 770 -vR /grandis
+
 ```
 
 
