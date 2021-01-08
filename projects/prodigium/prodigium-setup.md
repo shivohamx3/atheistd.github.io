@@ -6,16 +6,6 @@
 - `╰─> ssh-copy-id -i ~/.ssh/prodigium.pub infidel@192.168.1.105`
 
 - `$ sudo apt update && sudo apt upgrade -y`
-
-*/etc/hostname*
-```
-prodigium
-```
-*/etc/hosts*
-```
-127.0.1.1 prodigium.localdomain prodigium
-```
-
 - `$ sudo reboot +0`
 
 
