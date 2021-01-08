@@ -64,7 +64,7 @@ sudo zfs set checksum=sha512 grandis
 sudo zfs set compression=gzip-9 grandis
 sudo zfs set copies=2 grandis
 sudo zfs set primarycache=all grandis
-sudo zfs set recordsize=1M
+sudo zfs set recordsize=1M grandis
 sudo zfs set snapdir=visible grandis
 sudo zfs set xattr=sa grandis
 ```
