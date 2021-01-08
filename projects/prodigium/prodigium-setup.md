@@ -99,7 +99,7 @@ sudo chmod 770 -vR /grandis
 
 
 
-##### Generate ssh keys for github and gitlab
+### Generate ssh keys for github and gitlab
 
 - `$ eval "$(ssh-agent -s)"`
 - `$ mkdir ~/.ssh`
@@ -155,16 +155,3 @@ ChallengeResponseAuthentication yes
 ```
 
 - `$ sudo systemctl restart sshd`
-
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-
