@@ -6,6 +6,7 @@
 - `╰─> ssh-copy-id -i ~/.ssh/prodigium.pub infidel@192.168.1.105`
 
 - `$ sudo apt update && sudo apt upgrade -y`
+
 */etc/hostname*
 ```
 prodigium
@@ -31,26 +32,81 @@ prodigium
 
 
 
-### ZFS related setup
+## ZFS related setup
 
-- `$ sudo zpool import`
-- `$ sudo zpool import <pool-id>`
-- `$ sudo chmod 770 -R /grandis`
-- `$ sudo chown -R infidel:infidel /grandis`
-- `$ `
-- `$ `
-- `$ `
-- `$ `
+##### initial zpool and dataset creation
+
+```
+sudo zpool create -o ashift=12 grandis raidz2 /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh raidz2 /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn /dev/sdo /dev/sdp
+
+sudo zpool export grandis
+sudo zpool import    *trial run to get pool-id*
+sudo zpool import -d /dev/disk/by-id <pool-id>
+
+sudo zfs create grandis/personal
+sudo zfs create grandis/work
+
+sudo zfs create grandis/personal/media
+sudo zfs create grandis/personal/media/movies
+sudo zfs create grandis/personal/media/tv_series
+sudo zfs create grandis/personal/media/camera_roll
+
+sudo zfs create grandis/personal/backup
+sudo zfs create grandis/personal/backup/ringmaster
+sudo zfs create grandis/personal/backup/flameboi
+sudo zfs create grandis/personal/backup/chief
+sudo zfs create grandis/personal/backup/phoenix
+sudo zfs create grandis/personal/backup/sentinel
+
+sudo zfs create grandis/personal/z_pesky
+
+sudo zfs create grandis/work/ml_datasets
+sudo zfs create grandis/work/nix_iso
+```
 
 
 
-### Generate ssh keys for 
+##### Setting dataset properties
+
+```
+sudo zfs set atime=off grandis
+sudo zfs set checksum=sha512 grandis
+sudo zfs set compression=gzip-9 grandis
+sudo zfs set copies=2 grandis
+sudo zfs set primarycache=all grandis
+sudo zfs set recordsize=1M
+sudo zfs set snapdir=visible grandis
+sudo zfs set xattr=sa grandis
+```
+
+
+
+##### Verify created pools
+
+```
+zpool status -v
+zfs list
+```
+
+
+
+##### Own mount points
+
+```
+sudo chown infidel:infidel -vR /grandis
+sudo chmod 770 -vR /grandis
+```
+
+
+
+##### Generate ssh keys for github and gitlab
 
 - `$ eval "$(ssh-agent -s)"`
 - `$ mkdir ~/.ssh`
 - `$ chmod 700 ~/.ssh`
 - `$ cd ~/.ssh`
-- `$ ssh-keygen -t ed25519`
+- `$ ssh-keygen -t ed25519`&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab*
+
 - `$ chsh -s /usr/bin/zsh infidel`
 
 

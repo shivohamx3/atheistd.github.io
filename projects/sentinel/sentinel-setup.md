@@ -62,7 +62,7 @@ startxfce4 &
 ### Everything ZFS & disk related
 
 - `$ sudo zpool import`
-- `$ sudo zpool import <pool-id>`
+- `$ sudo zpool import -d /dev/disk/by-id <pool-id>`
 - `$ sudo chmod 770 -R /heathen_nd`
 - `$ sudo chown -R ubuntu:www-data /heathen_nd`
 - **Check `lsusb` and verify the *idVendor* and *idProduct***
