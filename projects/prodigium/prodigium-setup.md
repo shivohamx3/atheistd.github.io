@@ -52,7 +52,6 @@ sudo zfs create grandis/personal/z_pesky
 
 sudo zfs create grandis/work/ml_datasets
 sudo zfs create grandis/work/nix_iso
-
 ```
 
 
@@ -67,7 +66,6 @@ sudo zfs set primarycache=all grandis
 sudo zfs set recordsize=1M grandis
 sudo zfs set snapdir=visible grandis
 sudo zfs set xattr=sa grandis
-
 ```
 
 
@@ -77,7 +75,6 @@ sudo zfs set xattr=sa grandis
 ```
 zpool status -v
 zfs list
-
 ```
 
 
@@ -87,7 +84,14 @@ zfs list
 ```
 sudo chown infidel:infidel -vR /grandis
 sudo chmod 770 -vR /grandis
+```
 
+
+##### ZFS `scrub` cron job
+
+ - `$ sudo crontab -e`
+```
+0 0 1,15 * * /usr/sbin/zpool scrub grandis
 ```
 
 
@@ -148,3 +152,41 @@ ChallengeResponseAuthentication yes
 ```
 
 - `$ sudo systemctl restart sshd`
+
+
+
+### SMB set-up
+
+*/etc/samba/smb.conf*
+```
+[grandis]
+	guest ok = no
+	comment = grandis
+	path = /grandis
+	browseable = yes
+	writeable = yes
+	create mask = 0700
+	directory mask = 0700
+```
+
+- `$ sudo smbpasswd -a infidel`
+
+
+
+### Disable locale env forwarding on ssh
+
+*/etc/ssh/ssh_config* **(comment the line out if you didn’t understand)**
+```
+# SendEnv LANG LC_*
+```
+
+
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `

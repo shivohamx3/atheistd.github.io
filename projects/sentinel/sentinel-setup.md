@@ -63,8 +63,8 @@ startxfce4 &
 
 - `$ sudo zpool import`
 - `$ sudo zpool import -d /dev/disk/by-id <pool-id>`
-- `$ sudo chmod 770 -R /heathen_nd`
-- `$ sudo chown -R ubuntu:www-data /heathen_nd`
+- `$ sudo chmod 770 -R /libertine`
+- `$ sudo chown -R ubuntu:www-data /libertine`
 - **Check `lsusb` and verify the *idVendor* and *idProduct***
 
 */etc/modprobe.d/blacklist_uas.conf*
@@ -99,10 +99,10 @@ options usb-storage quirks=1058:25e2:u
 
 */etc/samba/smb.conf*
 ```
-[heathen]
+[libertine]
 	guest ok = no
-	comment = heathen_nd
-	path = /heathen_nd
+	comment = libertine
+	path = /libertine
 	browseable = yes
 	writeable = yes
 	create mask = 0700
@@ -131,7 +131,7 @@ Listen 666
 
 */etc/apache2/apache2.conf*
 ```
-<Directory /heathen_nd>
+<Directory /libertine>
 	Options Indexes FollowSymLinks
 	AllowOverride None
 	Require all granted
@@ -147,7 +147,7 @@ Listen 666
 ```
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
-	DocumentRoot /heathen_nd
+	DocumentRoot /libertine
 </VirtualHost>
 <VirtualHost *:666>
 	ServerAdmin webmaster@localhost
@@ -189,12 +189,12 @@ su ubuntu -c "/usr/bin/vncserver -geometry 1920x1080"
 
 - `$ sudo crontab -e`
 ```
-0 0 1,15 * * /usr/sbin/zpool scrub heathen_nd
+0 0 1,15 * * /usr/sbin/zpool scrub libertine
 ```
 
 - `$ crontab -e`
 ```
-0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.* /heathen_nd/config_dir/
+0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.* /libertine/config_dir/
 ```
 
 
