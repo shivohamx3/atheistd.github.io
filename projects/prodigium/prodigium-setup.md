@@ -41,12 +41,12 @@ sudo zfs create grandis/personal/media/movies
 sudo zfs create grandis/personal/media/tv_series
 sudo zfs create grandis/personal/media/camera_roll
 
-sudo zfs create grandis/personal/backup
-sudo zfs create grandis/personal/backup/ringmaster
-sudo zfs create grandis/personal/backup/flameboi
-sudo zfs create grandis/personal/backup/chief
-sudo zfs create grandis/personal/backup/phoenix
-sudo zfs create grandis/personal/backup/sentinel
+sudo zfs create grandis/backup
+sudo zfs create grandis/backup/ringmaster
+sudo zfs create grandis/backup/flameboi
+sudo zfs create grandis/backup/chief
+sudo zfs create grandis/backup/phoenix
+sudo zfs create grandis/backup/sentinel
 
 sudo zfs create grandis/personal/z_pesky
 
@@ -61,7 +61,7 @@ sudo zfs create grandis/work/nix_iso
 ```
 sudo zfs set atime=off grandis
 sudo zfs set checksum=sha512 grandis
-sudo zfs set compression=lz4 grandis
+sudo zfs set compression=gzip-9 grandis
 sudo zfs set primarycache=all grandis
 sudo zfs set recordsize=1M grandis
 sudo zfs set snapdir=visible grandis
