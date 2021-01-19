@@ -1,4 +1,4 @@
-# Setup *pratham* ![prodigium! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/prodigium/prodigium-small.png)
+# Setup *prodigium* ![prodigium! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/prodigium/prodigium-small.png)
 
 ### Ubuntu Server 20.04
 
