@@ -1,4 +1,4 @@
-# Setup *prodigium* ![prodigium! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/prodigium/prodigium-small.png)
+# Setup *pratham* ![prodigium! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/prodigium/prodigium-small.png)
 
 ### Ubuntu Server 20.04
 
@@ -29,10 +29,6 @@
 ```
 sudo zpool create -o ashift=12 grandis raidz2 /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh raidz2 /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn /dev/sdo /dev/sdp
 
-sudo zpool export grandis
-sudo zpool import    *trial run to get pool-id*
-sudo zpool import -d /dev/disk/by-id <pool-id>
-
 sudo zfs create grandis/personal
 sudo zfs create grandis/work
 
@@ -52,6 +48,12 @@ sudo zfs create grandis/personal/z_pesky
 
 sudo zfs create grandis/work/ml_datasets
 sudo zfs create grandis/work/nix_iso
+
+sudo zpool export grandis
+
+sudo zpool import    *trial run to get pool-id*
+sudo zpool import -d /dev/disk/by-id <pool-id>
+
 ```
 
 
@@ -66,6 +68,7 @@ sudo zfs set primarycache=all grandis
 sudo zfs set recordsize=1M grandis
 sudo zfs set snapdir=visible grandis
 sudo zfs set xattr=sa grandis
+
 ```
 
 
@@ -73,8 +76,10 @@ sudo zfs set xattr=sa grandis
 ##### Verify created pools
 
 ```
+clear
 zpool status -v
 zfs list
+
 ```
 
 
@@ -84,6 +89,7 @@ zfs list
 ```
 sudo chown infidel:infidel -vR /grandis
 sudo chmod 770 -vR /grandis
+
 ```
 
 
