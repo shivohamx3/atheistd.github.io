@@ -34,6 +34,13 @@
 
 
 
+### Making `terminator` default terminal emulator
+
+ - `$ gsettings set org.gnome.desktop.default-applications.terminal exec '/usr/bin/terminator'`
+ - `$ sudo update-alternatives --config x-terminal-emulator`
+
+
+
 ### Generate ssh keys
 
 - `$ cd ~/.ssh`
