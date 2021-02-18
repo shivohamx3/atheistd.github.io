@@ -3,7 +3,7 @@
 </head>
 
 # atheistd
-### [Setup `ringmaster`](https://atheistd.github.io/projects/ringmaster/ringmaster-setup)
+### [Setup `ringmaster`](https://atheistd.github.io/projects/ringmaster/ringmaster-setup.html)
 ### [Setup `sentinel`](https://atheistd.github.io/projects/sentinel/sentinel-setup)
 ### [Setup `flameboi`](https://atheistd.github.io/projects/flameboi/flameboi-setup)
 ### [Setup `prodigium`](https://atheistd.github.io/projects/prodigium/prodigium-setup)
