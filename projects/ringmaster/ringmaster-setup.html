@@ -24,24 +24,26 @@
 	<h5>Xcode setup</h5>
 
 	<ul>
-		<li>% xcode-select --install</li>
+		<li>% <code>xcode-select --install</code></li>
 		<ul>
 			<li>Give <code>Developer Tools</code> access to <code>Terminal.app</code></li>
 		</ul>
 	</ul>
 
 
-	<h5></h5>
+	<h5>Show all files in Finder</h5>
 
 	<ul>
-		<li></li>
+		<li>% <code>defaults write com.apple.finder AppleShowAllFiles YES</code></li>
+		<li>% <code>killall Finder</code></li>
 	</ul>
 
 
-	<h5></h5>
+	<h5>Homebrew</h5>
 
 	<ul>
-		<li></li>
+		<li>% <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></li>
+		<li>% <code> brew install cowsay ffmpeg fish fortune glances htop lolcat neofetch speedtest-cli ssh-copy-id wget</code></li>
 	</ul>
 
 
