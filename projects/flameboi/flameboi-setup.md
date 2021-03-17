@@ -2,10 +2,22 @@
 
 
 
-### Masking sleep targets
+### UPDATE!!!
 
 - `$ sudo apt update && sudo apt upgrade -y`
-- `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
+
+
+
+### Swap
+
+- `$ sudo dd if=/dev/zero of=/swapfile bs=1M count=74088185856 status=progress`
+- `$ sudo chmod 600 /swapfile`
+- `$ sudo mkswap /swapfile`
+- `$ sudo swapon /swapfile`
+- `$ echo '/swapfile none swap defaults 0 0' | sudo tee -a /etc/fstab` 
+- `$ sudo apt install uswsusp -y`
+- `$ sudo dpkg-reconfigure -pmedium uswsusp`
+- `$ sudo s2disk`
 
 
 
@@ -22,7 +34,7 @@
 
 ### Installing packages
 
-- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git handbrake hdparm htop libpam-google-authenticator neofetch nload openssh-server python3 python3-pip qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim vlc wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git handbrake hdparm htop libpam-google-authenticator neofetch nload openssh-server python3 python3-pip qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim vlc wget zfsutils-linux zip zsh ncdu -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`

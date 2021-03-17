@@ -14,11 +14,11 @@
 - `$ sudo apt update && sudo apt upgrade -y`
 */etc/hostname*
 ```
-prodigium
+sentinel
 ```
 */etc/hosts*
 ```
-127.0.1.1 prodigium.localdomain prodigium
+127.0.1.1 sentinel.localdomain sentinel
 ```
 
 - `$ sudo reboot +0`
@@ -47,7 +47,7 @@ startxfce4 &
 
 - `$ vncserver -geometry 1920x1080`
 
-- `$ sudo apt install apache2 aria2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload python3 python3-pip rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget zfsutils-linux zsh -y`
+- `$ sudo apt install apache2 aria2 curl exfat-fuse exfat-utils ffmpeg firefox fish git glances gparted neofetch nload python3 python3-pip rar samba samba-common-bin speedtest-cli telegram-desktop terminator transmission unrar vim wget zfsutils-linux zsh unbound -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`

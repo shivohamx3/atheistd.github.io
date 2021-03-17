@@ -12,7 +12,7 @@
 
 ### Install necessary packages
 
-- `$ sudo apt install aria2 cmatrix curl ffmpeg fonts-firacode hdparm htop libpam-google-authenticator nload openssh-server python3 python3-pip rar rsync smartmontools speedtest-cli unrar unzip vim wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install aria2 cmatrix curl ffmpeg fonts-firacode hdparm htop libpam-google-authenticator nload openssh-server python3 python3-pip rar rsync smartmontools speedtest-cli unrar unzip vim wget zfsutils-linux zip zsh transmission-cli transmission-daemon -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -31,6 +31,8 @@ sudo zpool create -o ashift=12 grandis raidz2 /dev/sda /dev/sdb /dev/sdc /dev/sd
 
 sudo zfs create grandis/personal
 sudo zfs create grandis/work
+
+sudo zfs create grandis/personal/torrents
 
 sudo zfs create grandis/personal/media
 sudo zfs create grandis/personal/media/movies
@@ -187,6 +189,35 @@ ChallengeResponseAuthentication yes
 ```
 
 
+### transmission
+
+
+- `$ sudo systemctl stop transmission-daemon.service`
+
+*/etc/transmission-daemon/settings.json*
+```
+"rpc-authentication-required": ~~false~~true,
+```
+
+
+- `$ transmission-daemon --allowed 192.168.1.103`
+- `$ sudo systemctl start transmission-daemon.service`
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ transmission-daemon --download-dir /grandis/personal/torrents`
+
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
+- `$ `
 - `$ `
 - `$ `
 - `$ `
