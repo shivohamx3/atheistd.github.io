@@ -129,7 +129,7 @@
 >`"show_line_endings": true,`
 
 - Preferences > Key Bindings
->`{"keys": ["ctrl+tab"], "command": "next_view"},`
+>`{"keys": ["ctrl+tab"], "command": "next_view"},`<br>
 >`{"keys": ["ctrl+shift+tab"], "command": "prev_view"},`
 
 - [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)

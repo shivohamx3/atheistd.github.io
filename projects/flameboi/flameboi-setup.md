@@ -10,7 +10,7 @@
 
 ### Swap
 
-- `$ sudo dd if=/dev/zero of=/swapfile bs=1M count=74088185856 status=progress`
+- `$ sudo fallocate -l 69G /swapfile`
 - `$ sudo chmod 600 /swapfile`
 - `$ sudo mkswap /swapfile`
 - `$ sudo swapon /swapfile`
@@ -34,7 +34,7 @@
 
 ### Installing packages
 
-- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git handbrake hdparm htop libpam-google-authenticator neofetch nload openssh-server python3 python3-pip qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim vlc wget zfsutils-linux zip zsh ncdu -y`
+- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git handbrake hdparm htop libpam-google-authenticator ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim vlc wget zfsutils-linux zip zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -117,12 +117,41 @@ ChallengeResponseAuthentication yes
 
 
 
-### Python, CUDA & cuDNN setup
-* [Install CUDA and cuDNN on Pop!_os](https://support.system76.com/articles/cuda/)
-* [Ubuntu 18.04: Install TensorFlow and Keras for Deep Learning](https://www.pyimagesearch.com/2019/01/30/ubuntu-18-04-install-tensorflow-and-keras-for-deep-learning/)
-* [Install CUDA](https://gist.github.com/mikaelhg/cae5b7938aa3dfdf3d06a40739f2f3f4#file-cuda-install-md)
-* [Official TensorFlow documentation on CUDA on Ubuntu 18.04](https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_101)
-* [Install NVIDIA Graphics Drivers via apt-get](https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07#install-nvidia-graphics-driver-via-apt-get)
-* [How to setup NVIDIA GPU laptop with Ubuntu for Deep Learning (CUDA and CuDNN)](https://lazyprogrammer.me/how-to-setup-nvidia-gpu-laptop-with-ubuntu-for-deep-learning-cuda-and-cudnn/)
-* [Install the lastest NVIDIA Drivers on Ubuntu](https://www.maketecheasier.com/install-nvidia-drivers-ubuntu/)
-* [Brisk guide to install TensorFlow GPU on Linux Machine](https://medium.com/@redowan/no-bullshit-guide-on-installing-tensorflow-gpu-ubuntu-18-04-18-10-238924cc4a6a)
+### Python
+
+- `$ python3 -m venv deeplearning`
+- `$ startpy`
+- `$ pip3 install --upgrade pip`
+- `$ pip3 install pip-review`
+- `$ pip-review --interactive`
+- `$ deactivate`
+- `$ apt search cuda`
+- `$ sudo apt install <check which version is compatible with [torch](https://pytorch.org/get-started/locally/)`
+- `$ startpy`
+- `$ pip install ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano torch torchaudio torchvision tqdm`
+
+
+
+### Sublime Text 3
+
+- Preferences > Settings
+>`"fade_fold_buttons": true,`<br>
+>`"indent_guide_options": ["draw_active"],`<br>
+>`"ensure_newline_at_eof_on_save": true,`<br>
+>`"save_on_focus_lost": true,`<br>
+>`"atomic_save": true,`<br>
+>`"auto_complete_delay": 1,`<br>
+>`"shift_tab_unindent": true,`<br>
+>`"show_encoding": true,`<br>
+>`"show_line_endings": true,`
+
+- Preferences > Key Bindings
+>`{"keys": ["ctrl+tab"], "command": "next_view"},`<br>
+>`{"keys": ["ctrl+shift+tab"], "command": "prev_view"},`
+
+- [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)
+- [A File Icon](https://packagecontrol.io/packages/A%20File%20Icon)
+
+
+
+### Instal [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
