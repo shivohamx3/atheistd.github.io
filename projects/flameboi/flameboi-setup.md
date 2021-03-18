@@ -126,7 +126,7 @@ ChallengeResponseAuthentication yes
 - `$ pip-review --interactive`
 - `$ deactivate`
 - `$ apt search cuda`
-- `$ sudo apt install <check which version is compatible with [torch](https://pytorch.org/get-started/locally/)`
+- `$ sudo apt install <check which version is compatible with [torch](https://pytorch.org/get-started/locally/)>`
 - `$ startpy`
 - `$ pip install ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano torch torchaudio torchvision tqdm`
 
