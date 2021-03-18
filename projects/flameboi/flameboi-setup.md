@@ -34,7 +34,7 @@
 
 ### Installing packages
 
-- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git handbrake hdparm htop libpam-google-authenticator ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim vlc wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -150,8 +150,3 @@ ChallengeResponseAuthentication yes
 >`{"keys": ["ctrl+shift+tab"], "command": "prev_view"},`
 
 - [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)
-- [A File Icon](https://packagecontrol.io/packages/A%20File%20Icon)
-
-
-
-### Instal [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
