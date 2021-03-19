@@ -34,7 +34,7 @@
 
 ### Installing packages
 
-- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mpv ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -126,9 +126,9 @@ ChallengeResponseAuthentication yes
 - `$ pip-review --interactive`
 - `$ deactivate`
 - `$ apt search cuda`
-- `$ sudo apt install` <check which version is compatible with [torch](https://pytorch.org/get-started/locally/)>
+- `$ sudo apt install` <check which version is compatible with [torch](https://pytorch.org/get-started/locally/)> (**use at-least 11.1, 10.2 will not work well will NV 30XX**)
 - `$ startpy`
-- `$ pip install ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano torch torchaudio torchvision tqdm`
+- `$ pip3 install` <insert torch packages here> `ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
 
 
 
