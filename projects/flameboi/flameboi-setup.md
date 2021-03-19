@@ -128,7 +128,7 @@ ChallengeResponseAuthentication yes
 - `$ apt search cuda`
 - `$ sudo apt install` <check which version is compatible with [torch](https://pytorch.org/get-started/locally/)> (**use at-least 11.1, 10.2 will not work well will NV 30XX**)
 - `$ startpy`
-- `$ pip3 install` <insert torch packages here> `ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
+- `$ pip3 install` [insert torch packages here] `ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
 
 
 
