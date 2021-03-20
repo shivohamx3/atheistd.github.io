@@ -5,6 +5,7 @@
 ### UPDATE!!!
 
 - `$ sudo apt update && sudo apt upgrade -y`
+- Reboot
 
 
 
@@ -132,6 +133,8 @@ ChallengeResponseAuthentication yes
 
 
 ### Python
+
+- **REBOOT**
 
 - `$ python3 -m venv deeplearning`
 - `$ startpy`
