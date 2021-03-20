@@ -8,20 +8,37 @@
 
 
 
-### Swap
-
-- `$ sudo fallocate -l 69G /swapfile`
-- `$ sudo chmod 600 /swapfile`
-- `$ sudo mkswap /swapfile`
-- `$ sudo swapon /swapfile`
-- `$ echo '/swapfile none swap defaults 0 0' | sudo tee -a /etc/fstab` 
-- `$ sudo apt install uswsusp -y`
-- `$ sudo dpkg-reconfigure -pmedium uswsusp`
-- `$ sudo s2disk`
-
-
-
 ### Installing [Brave Browser](https://brave.com/linux/)
+
+
+
+### [Sublime Text 3](https://www.sublimetext.com/docs/3/linux_repositories.html)
+
+- [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)
+
+- Preferences > Settings
+```
+	"theme": "TwoDark.sublime-theme",
+	"color_scheme": "Packages/Theme - TwoDark/TwoDark.tmTheme",
+	"draw_shadows": false,
+	"highlight_modified_tabs": true,
+	"caret_extra_width": 1,
+	"fade_fold_buttons": true,
+	"indent_guide_options": ["draw_active"],
+	"ensure_newline_at_eof_on_save": true,
+	"save_on_focus_lost": true,
+	"atomic_save": true,
+	"auto_complete_delay": 1,
+	"shift_tab_unindent": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+```
+
+- Preferences > Key Bindings
+```
+	{"keys": ["ctrl+tab"], "command": "next_view"},
+	{"keys": ["ctrl+shift+tab"], "command": "prev_view"},
+```
 
 
 
@@ -34,13 +51,13 @@
 
 ### Installing packages
 
-- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mpv ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mpv ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli telegram-desktop terminator transmission unrar unzip vim virtualbox vlc wget zfsutils-linux sublime-text zip zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
 
-- `$ pip3 install instalooter bpytop`
-- `$ instalooter login`
+- `$ pip3 install bpytop`
+- `$ pip3 install instalooter && instalooter login`
 
 - `$ sudo zpool import`
 
@@ -103,10 +120,7 @@ login attempts, you can enable rate-limiting for the authentication module.
 By default, this limits attackers to no more than 3 login attempts every 30s.
 Do you want to enable rate-limiting? (y/n) y`
 
-*/etc/pam.d/sshd*
-```
-auth required pam_google_authenticator.so
-```
+- `$ echo 'auth required pam_google_authenticator.so' | sudo tee -a /etc/pam.d/sshd`
 
 */etc/ssh/sshd_config*
 ```
@@ -129,24 +143,3 @@ ChallengeResponseAuthentication yes
 - `$ sudo apt install` <check which version is compatible with [torch](https://pytorch.org/get-started/locally/)> (**use at-least 11.1, 10.2 will not work well will NV 30XX**)
 - `$ startpy`
 - `$ pip3 install` [insert torch packages here] `ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
-
-
-
-### Sublime Text 3
-
-- Preferences > Settings
->`"fade_fold_buttons": true,`<br>
->`"indent_guide_options": ["draw_active"],`<br>
->`"ensure_newline_at_eof_on_save": true,`<br>
->`"save_on_focus_lost": true,`<br>
->`"atomic_save": true,`<br>
->`"auto_complete_delay": 1,`<br>
->`"shift_tab_unindent": true,`<br>
->`"show_encoding": true,`<br>
->`"show_line_endings": true,`
-
-- Preferences > Key Bindings
->`{"keys": ["ctrl+tab"], "command": "next_view"},`<br>
->`{"keys": ["ctrl+shift+tab"], "command": "prev_view"},`
-
-- [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)
