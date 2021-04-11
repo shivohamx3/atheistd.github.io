@@ -20,6 +20,7 @@
 - [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)
 
 - Preferences > Settings
+
 ```
 
 	"font_face": "Fira Code",
@@ -45,6 +46,7 @@
 ```
 
 - Preferences > Key Bindings
+
 ```
 
 	{"keys": ["ctrl+tab"], "command": "next_view"},
@@ -149,6 +151,7 @@ ChallengeResponseAuthentication yes
 ### OBS NVENC plugin(s)
 
  - [StreamFX](https://obsproject.com/forum/resources/streamfx-for-obs-studio.578/updates)
+
 
 
 ### Python
