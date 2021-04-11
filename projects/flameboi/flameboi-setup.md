@@ -151,7 +151,6 @@ ChallengeResponseAuthentication yes
  - [StreamFX](https://obsproject.com/forum/resources/streamfx-for-obs-studio.578/updates)
 
 
-
 ### Python
 
 - **REBOOT**
