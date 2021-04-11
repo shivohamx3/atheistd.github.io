@@ -15,24 +15,31 @@
 
 ### [Sublime Text 3](https://www.sublimetext.com/docs/3/linux_repositories.html)
 
+
+- [SublimeJEDI](https://packagecontrol.io/packages/Jedi%20-%20Python%20autocompletion)
 - [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)
 
 - Preferences > Settings
 ```
-	"theme": "TwoDark.sublime-theme",
-	"color_scheme": "Packages/Theme - TwoDark/TwoDark.tmTheme",
-	"draw_shadows": false,
-	"highlight_modified_tabs": true,
-	"caret_extra_width": 1,
-	"fade_fold_buttons": true,
-	"indent_guide_options": ["draw_active"],
-	"ensure_newline_at_eof_on_save": true,
-	"save_on_focus_lost": true,
+	"font_face": "Fira Code",
+	"font_options":["subpixel_antialias"],
 	"atomic_save": true,
 	"auto_complete_delay": 1,
+	"caret_extra_width": 1,
+	"color_scheme": "Packages/Theme - TwoDark/TwoDark.tmTheme",
+	"draw_shadows": false,
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":["Vintage"],
+	"indent_guide_options":["draw_active"],
+	"save_on_focus_lost": true,
 	"shift_tab_unindent": true,
 	"show_encoding": true,
 	"show_line_endings": true,
+	"theme": "TwoDark.sublime-theme",
+	"auto_complete_triggers": [{"selector": "source.python", "characters": "."}],
+
 ```
 
 - Preferences > Key Bindings
@@ -52,7 +59,7 @@
 
 ### Installing packages
 
-- `$ sudo apt install adb aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mediainfo mpv ncdu neofetch nload openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli sublime-text telegram-desktop terminator transmission unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install android-sdk-platform-tools-common aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -67,6 +74,9 @@
 ### Making `terminator` default terminal emulator
 
  - `$ gsettings set org.gnome.desktop.default-applications.terminal exec '/usr/bin/terminator'`
+ - `$ gsettings set org.gnome.desktop.interface clock-show-date true`
+ - `$ gsettings set org.gnome.desktop.interface clock-show-seconds true`
+ - `$ gsettings set org.gnome.desktop.interface clock-show-weekday true`
  - `$ sudo update-alternatives --config x-terminal-emulator`
 
 
@@ -132,9 +142,17 @@ ChallengeResponseAuthentication yes
 
 
 
+### OBS NVENC plugin(s)
+
+ - (StreamFX)[https://obsproject.com/forum/resources/streamfx-for-obs-studio.578/updates]
+
+
+
 ### Python
 
 - **REBOOT**
+
+- `$ sudo adduser $USER vboxusers`
 
 - `$ python3 -m venv deeplearning`
 - `$ startpy`
@@ -145,6 +163,22 @@ ChallengeResponseAuthentication yes
 - `$ apt search cuda`
 - `$ sudo apt install` (check which version is compatible with [torch](https://pytorch.org/get-started/locally/)) (**use at-least 11.1, 10.2 will not work well will NV 30XX**)
 - `$ startpy`
-- `$ pip3 install` [insert torch packages here] `ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
+- `$ pip3 install` [insert torch packages here] `ipython jupyter jupyterthemes keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
+
+*~/.jupyter/custom/custom.css*
+```
+@font-face {
+  font-family: 'Fira Code';
+  src: url("https://cdn.rawgit.com/dunovank/jupyter-themes/1e851888/jupyterthemes/fonts/monospace/firacode/firacode.otf") format("opentype");
+}
+
+.CodeMirror {
+  font-family: 'Fira Code';
+  font-variant-ligatures: initial;
+}
+
+.cm-string {
+    font-variant-ligatures: none;
+}
 
 - **REBOOT**
