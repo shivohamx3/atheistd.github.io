@@ -21,6 +21,7 @@
 
 - Preferences > Settings
 ```
+
 	"font_face": "Fira Code",
 	"font_options":["subpixel_antialias"],
 	"atomic_save": true,
@@ -40,12 +41,15 @@
 	"theme": "TwoDark.sublime-theme",
 	"auto_complete_triggers": [{"selector": "source.python", "characters": "."}],
 
+
 ```
 
 - Preferences > Key Bindings
 ```
+
 	{"keys": ["ctrl+tab"], "command": "next_view"},
 	{"keys": ["ctrl+shift+tab"], "command": "prev_view"},
+
 ```
 
 
@@ -144,7 +148,7 @@ ChallengeResponseAuthentication yes
 
 ### OBS NVENC plugin(s)
 
- - (StreamFX)[https://obsproject.com/forum/resources/streamfx-for-obs-studio.578/updates]
+ - [StreamFX](https://obsproject.com/forum/resources/streamfx-for-obs-studio.578/updates)
 
 
 
@@ -166,7 +170,9 @@ ChallengeResponseAuthentication yes
 - `$ pip3 install` [insert torch packages here] `ipython jupyter jupyterthemes keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
 
 *~/.jupyter/custom/custom.css*
+
 ```
+
 @font-face {
   font-family: 'Fira Code';
   src: url("https://cdn.rawgit.com/dunovank/jupyter-themes/1e851888/jupyterthemes/fonts/monospace/firacode/firacode.otf") format("opentype");
@@ -180,5 +186,7 @@ ChallengeResponseAuthentication yes
 .cm-string {
     font-variant-ligatures: none;
 }
+
+```
 
 - **REBOOT**
