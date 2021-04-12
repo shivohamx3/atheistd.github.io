@@ -80,10 +80,8 @@
 ### Making `terminator` default terminal emulator
 
  - `$ gsettings set org.gnome.desktop.default-applications.terminal exec '/usr/bin/terminator'`
- - `$ gsettings set org.gnome.desktop.interface clock-show-date true`
- - `$ gsettings set org.gnome.desktop.interface clock-show-seconds true`
- - `$ gsettings set org.gnome.desktop.interface clock-show-weekday true`
  - `$ sudo update-alternatives --config x-terminal-emulator`
+ - `$ gsettings set org.gnome.desktop.interface clock-show-date true; gsettings set org.gnome.desktop.interface clock-show-seconds true; gsettings set org.gnome.desktop.interface clock-show-weekday true`
 
 
 
