@@ -4,7 +4,9 @@
 
 ### UPDATE!!!
 
-- `$ sudo apt update && sudo apt upgrade -y`
+- **set DNS to pi-hole server**
+
+- `$ sudo apt update && sudo apt full-upgrade -y`
 - Reboot
 
 
@@ -13,8 +15,11 @@
 
 
 
-### [Sublime Text 3](https://www.sublimetext.com/docs/3/linux_repositories.html)
+### [VNC](https://www.realvnc.com/en/connect/download/viewer/)
 
+
+
+### [Sublime Text 3](https://www.sublimetext.com/docs/3/linux_repositories.html)
 
 - [SublimeJEDI](https://packagecontrol.io/packages/Jedi%20-%20Python%20autocompletion)
 - [TwoDark](https://packagecontrol.io/packages/Theme%20-%20TwoDark)
@@ -22,7 +27,6 @@
 - Preferences > Settings
 
 ```
-
 	"font_face": "Fira Code",
 	"font_options":["subpixel_antialias"],
 	"atomic_save": true,
@@ -41,17 +45,13 @@
 	"show_line_endings": true,
 	"theme": "TwoDark.sublime-theme",
 	"auto_complete_triggers": [{"selector": "source.python", "characters": "."}],
-
-
 ```
 
 - Preferences > Key Bindings
 
 ```
-
 	{"keys": ["ctrl+tab"], "command": "next_view"},
 	{"keys": ["ctrl+shift+tab"], "command": "prev_view"},
-
 ```
 
 
@@ -63,15 +63,18 @@
 
 
 
-### Installing packages
+### Installing necessary packages and preliminary setup
 
-- `$ sudo apt install android-sdk-platform-tools-common aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-venv qemu rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install android-sdk-platform-tools-common aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh brave-browser sublime-text iperf python3-tk -y`
+- `$ flatpak install flathub com.bitwarden.desktop`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
 
 - `$ pip3 install bpytop`
-- `$ pip3 install instalooter && instalooter login`
+- `$ pip3 install instalooter`
+
+- `$ sudo update-alternatives --config editor`
 
 - `$ sudo zpool import`
 
@@ -167,7 +170,7 @@ ChallengeResponseAuthentication yes
 - `$ apt search cuda`
 - `$ sudo apt install` (check which version is compatible with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [torch](https://pytorch.org/get-started/locally/)) (**use at-least 11.1, 10.2 will not work well will NV 30XX**)
 - `$ startpy`
-- `$ pip3 install` [insert torch packages here] `ipython jupyter jupyterthemes keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
+- `$ pip3 install` [insert torch packages here] `ipython jupyter jupyterthemes keras matplotlib numpy opencv-python pandas quandl jupyterlab scikit-learn scipy seaborn theano tqdm`
 
 *~/.jupyter/custom/custom.css*
 

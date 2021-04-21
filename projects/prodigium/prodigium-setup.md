@@ -1,5 +1,7 @@
 # Setup *prodigium* ![prodigium! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/prodigium/prodigium-small.png)
 
+
+
 ### Ubuntu Server 20.04
 
 - `╰─> cd .ssh`
@@ -10,15 +12,19 @@
 
 
 
-### Install necessary packages
+### Installing necessary packages and preliminary setup
 
-- `$ sudo apt install aria2 cmatrix curl ffmpeg fonts-firacode hdparm htop libpam-google-authenticator nload openssh-server python3 python3-pip rar rsync smartmontools speedtest-cli unrar unzip vim wget zfsutils-linux zip zsh transmission-cli transmission-daemon -y`
+- `$ sudo apt install aria2 cmatrix curl ffmpeg hdparm htop libpam-google-authenticator nload openssh-server python3 python3-pip rar rsync smartmontools speedtest-cli exfat-fuse exfat-utils unrar unzip vim wget zfsutils-linux zip zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
 
 - `$ pip3 install instalooter bpytop`
 - `$ instalooter login`
+
+- `$ sudo update-alternatives --config editor`
+
+- `$ sudo reboot +0`
 
 
 
@@ -27,10 +33,11 @@
 ##### initial zpool and dataset creation
 
 ```
-sudo zpool create -o ashift=12 grandis raidz2 /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh raidz2 /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm /dev/sdn /dev/sdo /dev/sdp
+sudo zpool create -o ashift=12 grandis raidz2 /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg /dev/sdh
 
 sudo zfs create grandis/personal
 sudo zfs create grandis/work
+sudo zfs create grandis/backup
 
 sudo zfs create grandis/personal/torrents
 
@@ -39,14 +46,13 @@ sudo zfs create grandis/personal/media/movies
 sudo zfs create grandis/personal/media/tv_series
 sudo zfs create grandis/personal/media/camera_roll
 
-sudo zfs create grandis/backup
 sudo zfs create grandis/backup/ringmaster
 sudo zfs create grandis/backup/flameboi
 sudo zfs create grandis/backup/chief
 sudo zfs create grandis/backup/phoenix
 sudo zfs create grandis/backup/sentinel
 
-sudo zfs create grandis/personal/z_pesky
+sudo zfs create grandis/personal/zpesky
 
 sudo zfs create grandis/work/ml_datasets
 sudo zfs create grandis/work/nix_iso
@@ -55,25 +61,19 @@ sudo zpool export grandis
 
 sudo zpool import    *trial run to get pool-id*
 sudo zpool import -d /dev/disk/by-id <pool-id>
-
 ```
-
-
 
 ##### Setting dataset properties
 
 ```
 sudo zfs set atime=off grandis
 sudo zfs set checksum=sha512 grandis
-sudo zfs set compression=gzip-9 grandis
+sudo zfs set compression=zstd-19 grandis
 sudo zfs set primarycache=all grandis
 sudo zfs set recordsize=1M grandis
 sudo zfs set snapdir=visible grandis
 sudo zfs set xattr=sa grandis
-
 ```
-
-
 
 ##### Verify created pools
 
@@ -81,25 +81,50 @@ sudo zfs set xattr=sa grandis
 clear
 zpool status -v
 zfs list
-
 ```
-
-
 
 ##### Own mount points
 
 ```
+sudo chmod 740 -vR /grandis
 sudo chown infidel:infidel -vR /grandis
-sudo chmod 770 -vR /grandis
+```
+
+
+
+### cron job user script
+
+*/grandis/chksums/calc_chksums.sh*
+
+```
+#!/usr/bin/env bash
+
+FIND ABSOLUTE PATHS OF THE PROGRAMS
+
+find /grandis/personal -type f -exec md5 -r "{}" + > /grandis/chksums/chk_personal.txt
+find /grandis/work -type f -exec md5 -r "{}" + > /grandis/chksums/chk_work.txt
+find /grandis/backup -type f -exec md5 -r "{}" + > /grandis/chksums/chk_backup.txt
+
+cd /grandis/chksums/
+git add .
+git commit -m $date
 
 ```
 
 
-##### ZFS `scrub` cron job
+
+### `cron jobs`
 
  - `$ sudo crontab -e`
+
 ```
 0 0 1,15 * * /usr/sbin/zpool scrub grandis
+```
+
+- `$ crontab -e`
+
+```
+0 0 10,20 * * /grandis/chksums/calc_chksums.sh
 ```
 
 
@@ -178,6 +203,7 @@ ChallengeResponseAuthentication yes
 ```
 
 - `$ sudo smbpasswd -a infidel`
+- `$ sudo systemctl restart smbd`
 
 
 
@@ -188,42 +214,3 @@ ChallengeResponseAuthentication yes
 # SendEnv LANG LC_*
 ```
 
-
-### transmission
-
-
-- `$ sudo systemctl stop transmission-daemon.service`
-
-*/etc/transmission-daemon/settings.json*
-```
-"rpc-authentication-required": ~~false~~true,
-```
-
-
-- `$ transmission-daemon --allowed 192.168.1.103`
-- `$ sudo systemctl start transmission-daemon.service`
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ transmission-daemon --download-dir /grandis/personal/torrents`
-
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
-- `$ `
