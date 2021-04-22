@@ -9,7 +9,7 @@
 - `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 - `$ sudo apt update && sudo apt upgrade -y`
 - `$ echo "sentinel" | sudo tee /etc/hostname`
-- `$ echo "127.0.1.1 sentinel.local sentinel" | sudo tee -a /etc/hosts`
+- `$ echo "127.0.1.1 sentinel" | sudo tee -a /etc/hosts`
 - `$ sudo timedatectl set-timezone Asia/Kolkata`
 - `$ sudo reboot +0`
 
