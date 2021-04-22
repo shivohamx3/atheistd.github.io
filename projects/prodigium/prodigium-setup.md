@@ -99,16 +99,13 @@ sudo chown infidel:infidel -vR /grandis
 ```
 #!/usr/bin/env bash
 
-FIND ABSOLUTE PATHS OF THE PROGRAMS
-
-find /grandis/personal -type f -exec md5 -r "{}" + > /grandis/chksums/chk_personal.txt
-find /grandis/work -type f -exec md5 -r "{}" + > /grandis/chksums/chk_work.txt
-find /grandis/backup -type f -exec md5 -r "{}" + > /grandis/chksums/chk_backup.txt
+/usr/bin/find /grandis/personal -type f -exec md5sum "{}" + > /grandis/chksums/chk_personal.txt
+/usr/bin/find /grandis/work -type f -exec md5sum "{}" + > /grandis/chksums/chk_work.txt
+/usr/bin/find /grandis/backup -type f -exec md5sum "{}" + > /grandis/chksums/chk_backup.txt
 
 cd /grandis/chksums/
 git add .
-git commit -m $date
-
+git commit -m "$(date)"
 ```
 
 

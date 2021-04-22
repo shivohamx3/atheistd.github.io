@@ -4,13 +4,13 @@
 
 ### First setup + disabling `snapd`
 
-- `╰─> cd .ssh`
 - `╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
 
 - `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 - `$ sudo apt update && sudo apt upgrade -y`
 - `$ echo "sentinel" | sudo tee /etc/hostname`
-- `$ echo "127.0.1.1 sentinel.localdomain sentinel" | sudo tee -a /etc/hosts`
+- `$ echo "127.0.1.1 sentinel.local sentinel" | sudo tee -a /etc/hosts`
+- `$ sudo timedatectl set-timezone Asia/Kolkata`
 - `$ sudo reboot +0`
 
 
@@ -118,6 +118,7 @@ server:
 - `$ sudo service unbound restart`
 
 - Goto [pi-hole dashbord](http://192.168.1.104:200/admin/settings.php?tab=dns) and set custom DNS (remove any previously set DNS servers) to `127.0.0.1#5335`.
+- [Update gravity](http://192.168.1.104:200/admin/gravity.php) as the db will be read-only for some reason, even after a reboot.
 - Goto [pi-hole dashbord](http://192.168.1.104:200/admin/groups-domains.php?type=white) and add `s.youtube.com` to Whitelist.
 
 - `$ sudo reboot +0`
@@ -196,7 +197,8 @@ ChallengeResponseAuthentication yes
 
 ### Web servers' set-up
 
-*/etc/apache2/ports.conf* (DON'T INCLUDE PORT 200 as this file is `apache` specific)
+*/etc/apache2/ports.conf*
+(DON'T INCLUDE PORT 200 as this file is `apache` specific)
 ```
 Listen 80
 Listen 666
