@@ -30,6 +30,17 @@
 
 ## ZFS related setup
 
+
+##### ZFS parameters
+
+*/etc/modprobe.d/zfs.conf*
+
+```
+options zfs zfs_scan_idle = 0
+options zfs zfs_scrub_delay = 0
+options zfs zfs_scan_min_time_ms = 5000
+```
+
 ##### initial zpool and dataset creation
 
 ```

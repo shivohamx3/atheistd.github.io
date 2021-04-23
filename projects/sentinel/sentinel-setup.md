@@ -7,17 +7,21 @@
 - `╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
 
 - `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
-- `$ sudo apt update && sudo apt upgrade -y`
 - `$ echo "sentinel" | sudo tee /etc/hostname`
 - `$ echo "127.0.1.1 sentinel" | sudo tee -a /etc/hosts`
 - `$ sudo timedatectl set-timezone Asia/Kolkata`
+- `$ sudo reboot +0`
+- `$ sudo apt update && sudo apt upgrade -y`
 - `$ sudo reboot +0`
 
 
 
 ### Installing necessary packages and preliminary setup
 
-- `$ sudo apt install apache2 aria2 cmatrix curl exfat-fuse exfat-utils ffmpeg git glances hdparm htop libpam-google-authenticator nload openssh-server python3 python3-pip rsync samba samba-common-bin smartmontools speedtest-cli transmission-cli transmission-common transmission-daemon unrar unzip vim wget zfsutils-linux zip zsh -y`
+- [PlexMediaServer](https://support.plex.tv/articles/235974187-enable-repository-updating-for-supported-linux-server-distributions/)
+- `$ sudo apt update`
+
+- `$ sudo apt install apache2 aria2 cmatrix curl exfat-fuse exfat-utils ffmpeg git glances hdparm htop libpam-google-authenticator nload openssh-server python3 python3-pip rsync samba samba-common-bin smartmontools speedtest-cli transmission-cli transmission-common transmission-daemon unrar unzip vim wget zfsutils-linux zip zsh plexmediaserver -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -45,8 +49,8 @@
 
 - `$ sudo zpool import`
 - `$ sudo zpool import -d /dev/disk/by-id <pool-id>`
-- `$ sudo chmod 770 -R /libertine`
-- `$ sudo chown -R ubuntu:www-data /libertine`
+- `$ sudo usermod -aG ubuntu plex`
+- `$ sudo chmod 755 -R /libertine && sudo chown ubuntu:www-data -R /libertine`
 - `$ sudo reboot +0`
 
 
@@ -119,6 +123,27 @@ server:
 
 - Goto [pi-hole dashbord](http://192.168.1.104:200/admin/settings.php?tab=dns) and set custom DNS (remove any previously set DNS servers) to `127.0.0.1#5335`.
 - [Update gravity](http://192.168.1.104:200/admin/gravity.php) as the db will be read-only for some reason, even after a reboot.
+- Add the following links to [pi-hole Adlists](http://192.168.1.104:200/admin/groups-adlists.php) (copy paste it, pihole will automatically understand different links because of spaces) [source](https://firebog.net/)
+
+```
+https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts https://v.firebog.net/hosts/static/w3kbl.txt https://adaway.org/hosts.txt https://v.firebog.net/hosts/AdguardDNS.txt https://v.firebog.net/hosts/Admiral.txt https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt https://v.firebog.net/hosts/Easylist.txt https://v.firebog.net/hosts/Easyprivacy.txt https://v.firebog.net/hosts/Prigent-Ads.txt https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt https://raw.githubusercontent.com/Kees1958/W3C_annual_most_used_survey_blocklist/master/TOP_EU_US_Ads_Trackers_HOST https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser
+```
+
+- In [pi-hole blacklist](http://192.168.1.104:200/admin/groups-domains.php?type=black#tab_regex), add the following regex to be considered for blocking. [source](https://github.com/mmotti/pihole-regex/blob/master/regex.list)
+
+```
+^ad([sxv]?[0-9]*|system)[_.-]([^.[:space:]]+\.){1,}|[_.-]ad([sxv]?[0-9]*|system)[_.-]
+^(.+[_.-])?adse?rv(er?|ice)?s?[0-9]*[_.-]
+^(.+[_.-])?telemetry[_.-]
+^adim(age|g)s?[0-9]*[_.-]
+^adtrack(er|ing)?[0-9]*[_.-]
+^advert(s|is(ing|ements?))?[0-9]*[_.-]
+^aff(iliat(es?|ion))?[_.-]
+^analytics?[_.-]
+^count(ers?)?[0-9]*[_.-]
+^mads\.
+^stat(s|istics)?[0-9]*[_.-]
+```
 - Goto [pi-hole dashbord](http://192.168.1.104:200/admin/groups-domains.php?type=white) and add `s.youtube.com` to Whitelist.
 
 - `$ sudo reboot +0`
@@ -286,6 +311,13 @@ server.port = 200
 # SendEnv LANG LC_*
 ```
 (comment the line out if you didn't understand)
+
+
+
+### Plex setup
+
+- In the [web UI](http://192.168.1.104:32400/web),, go to Settings -> Network -> *List of IP addresses and networks that are allowed without auth* and enter `192.168.1.0/24`.
+- Now in the web UI, under Settings -> Scheduled Tasks, set the *Backup Directory* to `/libertine/backup/sentinel/plexmediaserver/common/Library/Application\ Support/Plex\ Media\ Server/Plug-in\ Support/Databases/`
 
 
 
