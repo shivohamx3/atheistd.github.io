@@ -65,7 +65,7 @@
 
 ### Installing necessary packages and preliminary setup
 
-- `$ sudo apt install android-sdk-platform-tools-common aria2 cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh brave-browser sublime-text iperf python3-tk -y`
+- `$ sudo apt install android-sdk-platform-tools-common aria2 brave-browser cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop iostat iperf libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
 - `$ flatpak install flathub com.bitwarden.desktop`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
