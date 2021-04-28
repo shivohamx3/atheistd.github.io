@@ -274,7 +274,7 @@ server.port = 200
 */var/lib/transmission-daemon/info/settings.json*
 
 ```
-	"rpc-whitelist": "127.0.0.1,192.168.1.*",
+	"rpc-whitelist": "127.0.0.1,10.0.0.*",
 [...]
 	"download-dir": "/libertine/personal/torrents",
 	"download-limit": 500,
