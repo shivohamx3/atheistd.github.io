@@ -270,11 +270,17 @@ server.port = 200
 ### `transmission-cli + remote`
 
 - `$ sudo service transmission-daemon stop`
+- `$ sudo usermod -aG ubuntu debian-transmission`
+- `$ `
+- `$ `
+- `$ `
 
 */var/lib/transmission-daemon/info/settings.json*
 
 ```
 	"rpc-whitelist": "127.0.0.1,10.0.0.*",
+[...]
+    "umask": 2,
 [...]
 	"download-dir": "/libertine/personal/torrents",
 	"download-limit": 500,

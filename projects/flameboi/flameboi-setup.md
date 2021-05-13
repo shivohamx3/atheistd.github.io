@@ -6,7 +6,11 @@
 
 - **set DNS to pi-hole server**
 
-- `$ sudo apt update && sudo apt full-upgrade -y`
+- `$ sudo apt update`
+- `$ sudo systemctl unmask nvidia-resume.service && sudo systemctl unmask nvidia-suspend.service && sudo systemctl enable nvidia-resume.service && sudo systemctl enable nvidia-suspend.service`
+- `$ sudo apt remove "*nvidia"`
+- `$ sudo apt install system76-driver-nvidia -y`
+- `$ sudo apt upgrade -y`
 - Reboot
 
 
@@ -65,7 +69,7 @@
 
 ### Installing necessary packages and preliminary setup
 
-- `$ sudo apt install android-sdk-platform-tools-common aria2 brave-browser cmatrix curl dolphin exfat-fuse exfat-utils ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop iotop iperf libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install adb aria2 brave-browser cmatrix curl dolphin exfat-fuse exfat-utils fastboot ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop iotop iperf libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
 - `$ flatpak install flathub com.bitwarden.desktop`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
@@ -75,6 +79,7 @@
 - `$ pip3 install instalooter`
 
 - `$ sudo update-alternatives --config editor`
+- `$ sudo adduser $USER vboxusers`
 
 - `$ sudo zpool import`
 
@@ -159,9 +164,7 @@ ChallengeResponseAuthentication yes
 
 - **REBOOT**
 
-- `$ sudo adduser $USER vboxusers`
-
-- `$ python3 -m venv deeplearning`
+- `$ cd $HOME && python3 -m venv deeplearning`
 - `$ startpy`
 - `$ pip3 install --upgrade pip`
 - `$ pip3 install pip-review`
