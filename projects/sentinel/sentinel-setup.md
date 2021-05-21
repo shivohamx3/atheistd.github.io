@@ -301,6 +301,7 @@ server.port = 200
 - `$ sudo crontab -e`
 ```
 0 0 1,15 * * /usr/sbin/zpool scrub libertine
+0 * * * * /usr/bin/rsync --recursive --size-only /var/lib/transmission-daemon/.config/transmission-daemon/torrents/*.* /libertine/config_dir/
 ```
 
 - `$ crontab -e`
