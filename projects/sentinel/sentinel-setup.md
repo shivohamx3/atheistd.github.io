@@ -47,9 +47,32 @@
 
 ### Everything ZFS & disk related
 
-- `$ sudo zpool import`
-- `$ sudo zpool import -d /dev/disk/by-id <pool-id>`
+```
+sudo zfs create libertine/torrents
+sudo zfs create libertine/torrents/.incomplete
+
+sudo zfs create libertine/media
+sudo zfs create libertine/media/movies
+sudo zfs create libertine/media/tv_series
+sudo zfs create libertine/media/camera_roll
+
+sudo zfs create libertine/zpesky
+
+```
+
+```
+sudo zfs set atime=off libertine
+sudo zfs set compression=on libertine
+sudo zfs set compression=gzip libertine/zpesky
+sudo zfs set primarycache=all libertine
+sudo zfs set recordsize=1M libertine
+sudo zfs set snapdir=visible libertine
+sudo zfs set xattr=sa libertine
+
+```
+
 - `$ sudo usermod -aG ubuntu plex`
+- `$ sudo usermod -aG ubuntu debian-transmission`
 - `$ sudo chmod 755 -R /libertine && sudo chown ubuntu:www-data -R /libertine`
 - `$ sudo reboot +0`
 
@@ -121,29 +144,6 @@ server:
 
 - `$ sudo service unbound restart`
 
-- Goto [pi-hole dashbord](http://192.168.1.104:200/admin/settings.php?tab=dns) and set custom DNS (remove any previously set DNS servers) to `127.0.0.1#5335`.
-- [Update gravity](http://192.168.1.104:200/admin/gravity.php) as the db will be read-only for some reason, even after a reboot.
-- Add the following links to [pi-hole Adlists](http://192.168.1.104:200/admin/groups-adlists.php) (copy paste it, pihole will automatically understand different links because of spaces) [source](https://firebog.net/)
-
-```
-https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts https://v.firebog.net/hosts/static/w3kbl.txt https://adaway.org/hosts.txt https://v.firebog.net/hosts/AdguardDNS.txt https://v.firebog.net/hosts/Admiral.txt https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt https://v.firebog.net/hosts/Easylist.txt https://v.firebog.net/hosts/Easyprivacy.txt https://v.firebog.net/hosts/Prigent-Ads.txt https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt https://raw.githubusercontent.com/Kees1958/W3C_annual_most_used_survey_blocklist/master/TOP_EU_US_Ads_Trackers_HOST https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser
-```
-
-- In [pi-hole blacklist](http://192.168.1.104:200/admin/groups-domains.php?type=black#tab_regex), add the following regex to be considered for blocking. [source](https://github.com/mmotti/pihole-regex/blob/master/regex.list)
-
-```
-^ad([sxv]?[0-9]*|system)[_.-]([^.[:space:]]+\.){1,}|[_.-]ad([sxv]?[0-9]*|system)[_.-]
-^(.+[_.-])?adse?rv(er?|ice)?s?[0-9]*[_.-]
-^(.+[_.-])?telemetry[_.-]
-^adim(age|g)s?[0-9]*[_.-]
-^adtrack(er|ing)?[0-9]*[_.-]
-^advert(s|is(ing|ements?))?[0-9]*[_.-]
-^aff(iliat(es?|ion))?[_.-]
-^analytics?[_.-]
-^count(ers?)?[0-9]*[_.-]
-^mads\.
-^stat(s|istics)?[0-9]*[_.-]
-```
 - Goto [pi-hole dashbord](http://192.168.1.104:200/admin/groups-domains.php?type=white) and add `s.youtube.com` to Whitelist.
 
 - `$ sudo reboot +0`

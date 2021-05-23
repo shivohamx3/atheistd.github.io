@@ -51,6 +51,7 @@ sudo zfs create grandis/work
 sudo zfs create grandis/backup
 
 sudo zfs create grandis/personal/torrents
+sudo zfs create grandis/personal/torrents/.incomplete
 
 sudo zfs create grandis/personal/media
 sudo zfs create grandis/personal/media/movies
