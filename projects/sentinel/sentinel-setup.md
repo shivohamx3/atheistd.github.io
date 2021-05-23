@@ -72,6 +72,7 @@ sudo zfs set xattr=sa libertine
 ```
 
 - `$ sudo usermod -aG ubuntu plex`
+- `$ sudo usermod -aG ubuntu debian-transmission`
 - `$ sudo chmod 755 -R /libertine && sudo chown ubuntu:www-data -R /libertine`
 - `$ sudo reboot +0`
 
@@ -269,7 +270,6 @@ server.port = 200
 ### `transmission-cli + remote`
 
 - `$ sudo service transmission-daemon stop`
-- `$ sudo usermod -aG ubuntu debian-transmission`
 
 */var/lib/transmission-daemon/info/settings.json*
 
