@@ -19,8 +19,8 @@
 ### Installing necessary packages and preliminary setup
 
 - [PlexMediaServer](https://support.plex.tv/articles/235974187-enable-repository-updating-for-supported-linux-server-distributions/)
-- `$ sudo apt update`
 
+- `$ sudo apt update`
 - `$ sudo apt install apache2 aria2 cmatrix curl exfat-fuse exfat-utils ffmpeg git glances hdparm htop iotop libpam-google-authenticator nload openssh-server plexmediaserver python3 python3-pip rsync samba samba-common-bin smartmontools speedtest-cli transmission-cli transmission-common transmission-daemon unrar unzip vim wget zfsutils-linux zip zsh -y`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`

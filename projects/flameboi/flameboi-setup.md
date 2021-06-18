@@ -72,7 +72,7 @@
 ### Installing necessary packages and preliminary setup
 
 - `$ sudo apt install adb alacritty aria2 brave-browser cmatrix curl dolphin exfat-fuse exfat-utils fastboot ffmpeg firefox flatpak fonts-firacode git google-chrome-stable handbrake hdparm htop iotop iperf kitty libpam-google-authenticator mediainfo mpv ncdu neofetch nload obs-plugins obs-studio openssh-server python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rsync smartmontools speedtest-cli sublime-text terminator unrar unzip vim virtualbox vlc wget zfsutils-linux zip zsh -y`
-- `$ flatpak install flathub com.bitwarden.desktop`
+- `$ flatpak install flathub com.bitwarden.desktop qemu-efi`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
@@ -81,9 +81,24 @@
 - `$ pip3 install instalooter`
 
 - `$ sudo update-alternatives --config editor`
-- `$ sudo adduser $USER vboxusers`
-
 - `$ sudo zpool import`
+
+##### virtualization-related steps
+
+- `$ sudo adduser $USER vboxusers`
+- `$ sudo adduser $USER libvirt`
+- `$ sudo adduser $USER kvm`
+
+*/etc/libvirt/qemu.conf*
+
+```
+user = "atheistd"
+[...]
+roup = "atheistd"
+
+```
+
+- `$ sudo systemctl restart libvirtd`
 
 
 
