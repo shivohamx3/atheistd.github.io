@@ -88,58 +88,36 @@ sudo zfs set xattr=sa libertine
 
 ```
 server:
-    # If no logfile is specified, syslog is used
-    # logfile: "/var/log/unbound/unbound.log"
-    verbosity: 0
 
-    interface: 127.0.0.1
-    port: 5335
-    do-ip4: yes
-    do-udp: yes
-    do-tcp: yes
+	verbosity: 0
 
-    # May be set to yes if you have IPv6 connectivity
-    do-ip6: no
+	interface: 127.0.0.1
+	port: 5335
+	do-ip4: yes
+	do-udp: yes
+	do-tcp: yes
 
-    # You want to leave this to no unless you have *native* IPv6. With 6to4 and
-    # Terredo tunnels your web browser should favor IPv4 for the same reasons
-    prefer-ip6: no
 
-    # Use this only when you downloaded the list of primary root servers!
-    # If you use the default dns-root-data package, unbound will find it automatically
-    #root-hints: "/var/lib/unbound/root.hints"
+	do-ip6: no
+	prefer-ip6: no
 
-    # Trust glue only if it is within the server's authority
-    harden-glue: yes
+	harden-glue: yes
+	arden-dnssec-stripped: yes
 
-    # Require DNSSEC data for trust-anchored zones, if such data is absent, the zone becomes BOGUS
-    harden-dnssec-stripped: yes
+	use-caps-for-id: no
 
-    # Don't use Capitalization randomization as it known to cause DNSSEC issues sometimes
-    # see https://discourse.pi-hole.net/t/unbound-stubby-or-dnscrypt-proxy/9378 for further details
-    use-caps-for-id: no
+	dns-buffer-size: 1472
+	refetch: yes
+	um-threads: 1
 
-    # Reduce EDNS reassembly buffer size.
-    # Suggested by the unbound man page to reduce fragmentation reassembly problems
-    edns-buffer-size: 1472
+	o-rcvbuf: 1m
 
-    # Perform prefetching of close to expired message cache entries
-    # This only applies to domains that have been frequently queried
-    prefetch: yes
-
-    # One thread should be sufficient, can be increased on beefy machines. In reality for most users running on small networks or on a single machine, it should be unnecessary to seek performance enhancement by increasing num-threads above 1.
-    num-threads: 1
-
-    # Ensure kernel buffer is large enough to not lose messages in traffic spikes
-    so-rcvbuf: 1m
-
-    # Ensure privacy of local IP ranges
-    private-address: 192.168.0.0/16
-    private-address: 169.254.0.0/16
-    private-address: 172.16.0.0/12
-    private-address: 10.0.0.0/8
-    private-address: fd00::/8
-    private-address: fe80::/10
+	private-address: 192.168.0.0/16
+	private-address: 169.254.0.0/16
+	private-address: 172.16.0.0/12
+	private-address: 10.0.0.0/8
+	private-address: fd00::/8
+	private-address: fe80::/10
 ```
 
 - `$ sudo service unbound restart`
@@ -274,9 +252,10 @@ server.port = 200
 */var/lib/transmission-daemon/info/settings.json*
 
 ```
+[...]
 	"rpc-whitelist": "127.0.0.1,10.0.0.*",
 [...]
-    "umask": 2,
+	"umask": 2,
 [...]
 	"download-dir": "/libertine/personal/torrents",
 	"download-limit": 500,
@@ -285,6 +264,7 @@ server.port = 200
 	"incomplete-dir-enabled": true,
 [...]
 	"download-queue-size": 10,
+[...]
 ```
 
 - `$ sudo service transmission-daemon start`
