@@ -162,7 +162,8 @@ Do you want to enable rate-limiting? (y/n) y`
 
 - `$ echo 'auth required pam_google_authenticator.so' | sudo tee -a /etc/pam.d/sshd`
 
-*/etc/ssh/sshd_config*
+> */etc/ssh/sshd_config*
+
 ```
 ChallengeResponseAuthentication yes
 ```
@@ -190,7 +191,7 @@ ChallengeResponseAuthentication yes
 - `$ apt search cuda`
 - `$ sudo apt install` (check which version is compatible with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [torch](https://pytorch.org/get-started/locally/)) (**use at-least 11.1, 10.2 will not work well will NV 30XX**)
 - `$ startpy`
-- `$ pip3 install` [insert torch packages here] `ipython jupyter keras matplotlib numpy opencv-python pandas quandl jupyterlab scikit-learn scipy seaborn theano tqdm`
+- `$ pip3 install` [insert torch packages here] `ipython jupyter jupyterlab keras matplotlib nnfs numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
 
 *~/.jupyter/custom/custom.css*
 

@@ -57,7 +57,6 @@ sudo zfs create libertine/media/tv_series
 sudo zfs create libertine/media/camera_roll
 
 sudo zfs create libertine/zpesky
-
 ```
 
 ```
@@ -68,7 +67,6 @@ sudo zfs set primarycache=all libertine
 sudo zfs set recordsize=1M libertine
 sudo zfs set snapdir=visible libertine
 sudo zfs set xattr=sa libertine
-
 ```
 
 - `$ sudo usermod -aG ubuntu plex`
@@ -84,7 +82,7 @@ sudo zfs set xattr=sa libertine
 - `$ sudo apt install unbound -y` (unbound installation will fail as pihole-FTL is already running on port 53)
 - `$ pihole -a -p`
 
-*/etc/unbound/unbound.conf.d/pi-hole.conf*
+> */etc/unbound/unbound.conf.d/pi-hole.conf*
 
 ```
 server:
@@ -132,18 +130,18 @@ server:
 - `$ google-authenticator`
 
 
-> `Do you want authentication tokens to be time-based (y/n) y`
+> Do you want authentication tokens to be time-based (y/n) `y`
 
 
-> `Do you want me to update your "/home/pi/.google_authenticator" file? (y/n) y`
+> Do you want me to update your "/home/pi/.google_authenticator" file? (y/n) `y`
 
 
-> `Do you want to disallow multiple uses of the same authentication
+> Do you want to disallow multiple uses of the same authentication
 token? This restricts you to one login about every 30s, but it increases
-your chances to notice or even prevent man-in-the-middle attacks (y/n) y`
+your chances to notice or even prevent man-in-the-middle attacks (y/n) `y`
 
 
-> `By default, a new token is generated every 30 seconds by the mobile app.
+> By default, a new token is generated every 30 seconds by the mobile app.
 In order to compensate for possible time-skew between the client and the server,
 we allow an extra token before and after the current time. This allows for a
 time skew of up to 30 seconds between authentication server and client. If you
@@ -152,17 +150,18 @@ from its default size of 3 permitted codes (one previous code, the current
 code, the next code) to 17 permitted codes (the 8 previous codes, the current
 code, and the 8 next codes). This will permit for a time skew of up to 4 minutes
 between client and server.
-Do you want to do so? (y/n) n`
+Do you want to do so? (y/n) `n`
 
 
-> `If the computer that you are logging into isn't hardened against brute-force
+> If the computer that you are logging into isn't hardened against brute-force
 login attempts, you can enable rate-limiting for the authentication module.
 By default, this limits attackers to no more than 3 login attempts every 30s.
-Do you want to enable rate-limiting? (y/n) y`
+Do you want to enable rate-limiting? (y/n) `y`
 
 - `$ echo 'auth required pam_google_authenticator.so' | sudo tee -a /etc/pam.d/sshd`
 
-*/etc/ssh/sshd_config*
+> */etc/ssh/sshd_config*
+
 ```
 ChallengeResponseAuthentication yes
 ```
@@ -173,7 +172,8 @@ ChallengeResponseAuthentication yes
 
 ### SMB set-up
 
-*/etc/samba/smb.conf*
+> */etc/samba/smb.conf*
+
 ```
 [libertine]
 	guest ok = no
@@ -183,6 +183,7 @@ ChallengeResponseAuthentication yes
 	writeable = yes
 	create mask = 0700
 	directory mask = 0700
+
 [pi]
 	guest ok = no
 	comment = home
@@ -200,14 +201,16 @@ ChallengeResponseAuthentication yes
 
 ### Web servers' set-up
 
-*/etc/apache2/ports.conf*
+> */etc/apache2/ports.conf*
+
 (DON'T INCLUDE PORT 200 as this file is `apache` specific)
 ```
 Listen 80
 Listen 666
 ```
 
-*/etc/apache2/apache2.conf*
+> */etc/apache2/apache2.conf*
+
 ```
 <Directory /libertine>
 	Options Indexes FollowSymLinks
@@ -222,7 +225,8 @@ Listen 666
 </Directory>
 ```
 
-*/etc/apache2/sites-available/000-default.conf*
+> */etc/apache2/sites-available/000-default.conf*
+
 ```
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
@@ -235,7 +239,8 @@ Listen 666
 </VirtualHost>
 ```
 
-*/etc/lighttpd/lighttpd.conf*
+> */etc/lighttpd/lighttpd.conf*
+
 ```
 server.port = 200
 ```
@@ -249,7 +254,7 @@ server.port = 200
 
 - `$ sudo service transmission-daemon stop`
 
-*/var/lib/transmission-daemon/info/settings.json*
+> */var/lib/transmission-daemon/info/settings.json*
 
 ```
 [...]
@@ -271,16 +276,17 @@ server.port = 200
 - `$ transmission-remote -n 'transmission:transmission' -si`
 
 
-
 ### Set startup script
 
 - `$ sudo crontab -e`
+
 ```
 0 0 1,15 * * /usr/sbin/zpool scrub libertine
 0 * * * * /usr/bin/rsync --recursive --size-only /var/lib/transmission-daemon/.config/transmission-daemon/torrents/*.* /libertine/config_dir/
 ```
 
 - `$ crontab -e`
+
 ```
 0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.* /libertine/personal/config_dir
 ```
@@ -288,7 +294,7 @@ server.port = 200
 
 ### Disable locale env forwarding on ssh
 
-*/etc/ssh/ssh_config*
+> */etc/ssh/ssh_config*
 
 ```
 # SendEnv LANG LC_*
