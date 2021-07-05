@@ -29,7 +29,7 @@
 - `$ pip3 install instalooter bpytop`
 - `$ instalooter login`
 
-- `$ sudo update-alternatives --config editor`
+- `$ sudo update-alternatives --set editor /usr/bin/vim.basic`
 
 - `$ sudo reboot +0`
 
