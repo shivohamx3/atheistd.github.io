@@ -71,7 +71,7 @@
 
 ### Installing necessary packages and preliminary setup
 
-- `$ sudo apt install adb alacritty aria2 bash brave-browser bspwm cmatrix conky curl dolphin dunst exfat-fuse exfat-utils fastboot feh ffmpeg firefox flatpak fonts-firacode fonts-fork-awesome git google-chrome-stable handbrake hdparm htop iotop iperf jq lemonbar libnotify-bin libpam-google-authenticator libxcb-ewmh2 mediainfo mpv neofetch nload obs-plugins obs-studio openssh-server pcmanfm picom polybar python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rofi rsync smartmontools socat speedtest-cli sublime-text sxhkd terminator tmux unrar unzip vim virt-manager virtualbox vlc wget xdo xorg zfsutils-linux zip zsh -y`
+- `$ sudo apt install adb alacritty aria2 bash brave-browser breeze-cursor-theme bspwm cmatrix conky curl dolphin dunst exfat-fuse exfat-utils fastboot feh ffmpeg firefox flatpak fonts-firacode fonts-fork-awesome git google-chrome-stable handbrake hdparm htop i3lock i3lock-fancy install iotop iperf jq lemonbar libnotify-bin libpam-google-authenticator libxcb-ewmh2 mediainfo mpv neofetch nload obs-plugins obs-studio openssh-server pcmanfm picom polybar python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rofi rsync smartmontools socat speedtest-cli sublime-text sxhkd terminator tmux unrar unzip vim virt-manager virtualbox vlc wget xdo xorg zfsutils-linux zip zsh -y`
 - `$ flatpak install flathub com.bitwarden.desktop`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
