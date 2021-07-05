@@ -193,24 +193,20 @@ ChallengeResponseAuthentication yes
 - `$ startpy`
 - `$ pip3 install` [insert torch packages here] `ipython jupyter jupyterlab keras matplotlib nnfs numpy opencv-python pandas quandl scikit-learn scipy seaborn theano tqdm`
 
-*~/.jupyter/custom/custom.css*
+
+
+### Chrome-based browser scaling at 2160p native monitor resolution
+
+- Open `/etc/alternatives/brave-browser` and add the argument `--force-device-scale-factor=1.25` so it looks like
 
 ```
-
-@font-face {
-  font-family: 'Fira Code';
-  src: url("https://cdn.rawgit.com/dunovank/jupyter-themes/1e851888/jupyterthemes/fonts/monospace/firacode/firacode.otf") format("opentype");
-}
-
-.CodeMirror {
-  font-family: 'Fira Code';
-  font-variant-ligatures: initial;
-}
-
-.cm-string {
-    font-variant-ligatures: none;
-}
-
+[...]
+"$HERE/brave" "$@"  --force-device-scale-factor=1.25 || true
 ```
 
-- **REBOOT**
+- Do the same for `google-chrome`, but it should look like
+
+```
+[...]
+exec -a "$0" "$HERE/chrome" "$@" --force-device-scale-factor=1.25
+```
