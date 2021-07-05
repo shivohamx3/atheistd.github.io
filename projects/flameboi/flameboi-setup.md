@@ -195,7 +195,7 @@ ChallengeResponseAuthentication yes
 
 
 
-### Use `$HOME/.xinitrc` for starting bspwm from gdm
+### Use `$HOME/.xinitrc` for starting bspwm from `gdm`
 
 */usr/share/xsessions/bspwm.desktop*
 
