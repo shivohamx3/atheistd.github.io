@@ -28,6 +28,7 @@
 
 - [`install script`](https://brew.sh/)
 - `% brew install obs ssh-copy-id htop ffmpeg glances neofetch speedtest-cli wget mpv brave-browser homebrew/cask-versions/firefox-esr handbrake safari-technology-preview homebrew/cask-fonts/font-fira-code virtualbox virtualbox-extension-pack google-chrome coreutils`
+- `% brew install --cask transmission`
 
 
 
