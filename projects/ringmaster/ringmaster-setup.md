@@ -27,8 +27,7 @@
 ### Brew
 
 - [`install script`](https://brew.sh/)
-- `% brew install obs ssh-copy-id htop ffmpeg glances neofetch speedtest-cli wget mpv brave-browser homebrew/cask-versions/firefox-esr handbrake safari-technology-preview homebrew/cask-fonts/font-fira-code virtualbox virtualbox-extension-pack google-chrome coreutils`
-- `% brew install --cask transmission`
+- `% brew install aria2 coreutils ffmpeg grep htop neofetch speedtest-cli ssh-copy-id tmux wakeonlan wget && brew install --cask alacritty brave-browser firefox-esr font-fira-code google-chrome handbrake mpv obs safari-technology-preview steam telegram transmission virtualbox virtualbox-extension-pack`
 
 
 
