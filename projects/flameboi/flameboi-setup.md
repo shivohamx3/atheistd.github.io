@@ -32,6 +32,7 @@
 - Preferences > Settings
 
 ```
+	"ui_scale": 1.25,
 	"font_face": "Fira Code",
 	"font_options":["subpixel_antialias"],
 	"atomic_save": true,
@@ -42,15 +43,17 @@
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": true,
 	"highlight_modified_tabs": true,
-	"ignored_packages":["Vintage"],
 	"indent_guide_options":["draw_active"],
 	"save_on_focus_lost": true,
 	"shift_tab_unindent": true,
 	"show_encoding": true,
 	"show_line_endings": true,
 	"theme": "TwoDark.sublime-theme",
-	"auto_complete_triggers": [{"selector": "source.python", "characters": "."}],
+	"auto_complete_triggers": [{"selector": "source.python", "characters": ".",}],
+	"ignored_packages": ["Vintage"],
+	"font_size": 12,
 ```
+
 
 - Preferences > Key Bindings
 
