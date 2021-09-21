@@ -27,7 +27,7 @@
 ### Brew
 
 - [`install script`](https://brew.sh/)
-- `% brew install aria2 coreutils ffmpeg grep htop neofetch speedtest-cli ssh-copy-id tmux wakeonlan wget && brew install --cask alacritty bitwarden bluestacks brave-browser discord firefox font-fira-code font-fira-mono google-chrome handbrake keka mpv obs steam sublime-text telegram transmission virtualbox virtualbox-extension-pack vivaldi webtorrent && brew cleanup`
+- `% brew install aria2 coreutils ffmpeg grep htop neofetch speedtest-cli ssh-copy-id tmux wakeonlan wget && brew install --cask alacritty bitwarden bluestacks brave-browser discord firefox font-fira-code font-fira-mono google-chrome handbrake keka mpv obs steam sublime-text telegram transmission virtualbox virtualbox-extension-pack vivaldi webtorrent android-platform-tools && brew cleanup`
 
 
 
