@@ -11,7 +11,7 @@
 ### Brew
 
 - [`install script`](https://brew.sh/)
-- `% brew install aria2 coreutils ffmpeg grep htop neofetch speedtest-cli ssh-copy-id tmux wakeonlan watch wget && brew install --cask alacritty android-platform-tools bitwarden brave-browser firefox google-chrome handbrake homebrew/cask-fonts/font-fira-code homebrew/cask-fonts/font-fira-mono keka macs-fan-control mpv obs sublime-text telegram transmission virtualbox virtualbox-extension-pack webtorrent && brew cleanup`
+- `% brew update && brew upgrade && brew install aria2 coreutils ffmpeg grep htop neofetch speedtest-cli ssh-copy-id tmux wakeonlan watch wget && brew install --cask alacritty android-platform-tools bitwarden brave-browser firefox google-chrome handbrake homebrew/cask-fonts/font-fira-code homebrew/cask-fonts/font-fira-mono keka macs-fan-control mpv obs sublime-text telegram transmission virtualbox virtualbox-extension-pack webtorrent && brew cleanup`
 
 
 
@@ -48,7 +48,6 @@
 - [IINA](https://iina.io/)
 - [Intel Power Gadget](https://software.intel.com/en-us/articles/intel-power-gadget/)
 - [Keka default helper](https://github.com/aonez/Keka/wiki/Default-application)
-- [Spotify](http://spotify.com/in/download/other/)
 
 
 
