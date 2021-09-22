@@ -80,8 +80,7 @@
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
 
-- `$ pip3 install bpytop`
-- `$ pip3 install instalooter`
+- `$ pip3 install bpytop yt-dlp`
 
 - `$ sudo update-alternatives --set editor /usr/bin/vim.basic`
 - `$ sudo zpool import`

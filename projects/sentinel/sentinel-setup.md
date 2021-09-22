@@ -26,7 +26,7 @@
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
 - `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
 
-- `$ pip3 install instalooter bpytop`
+- `$ pip3 install yt-dlp bpytop`
 - `$ instalooter login`
 
 - `$ sudo update-alternatives --set editor /usr/bin/vim.basic`

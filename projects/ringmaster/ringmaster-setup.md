@@ -27,7 +27,7 @@
 ### Brew
 
 - [`install script`](https://brew.sh/)
-- `% brew install aria2 coreutils ffmpeg grep htop neofetch speedtest-cli ssh-copy-id tmux wakeonlan wget && brew install --cask alacritty bitwarden bluestacks brave-browser discord firefox homebrew/cask-fonts/font-fira-code homebrew/cask-fonts/font-fira-mono google-chrome handbrake keka mpv obs sublime-text telegram transmission virtualbox virtualbox-extension-pack webtorrent android-platform-tools macs-fan-control && brew cleanup`
+- `% brew install watch aria2 coreutils ffmpeg grep htop neofetch speedtest-cli ssh-copy-id tmux wakeonlan wget && brew install --cask alacritty bitwarden bluestacks brave-browser discord firefox homebrew/cask-fonts/font-fira-code homebrew/cask-fonts/font-fira-mono google-chrome handbrake keka mpv obs sublime-text telegram transmission virtualbox virtualbox-extension-pack webtorrent android-platform-tools macs-fan-control && brew cleanup`
 
 
 
@@ -54,7 +54,7 @@
 - `% pip3 install --upgrade pip`
 - `% pip3 install pip-review`
 - `% pip-review --interactive`
-- `% pip3 install instalooter ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn tensorflow theano torch torchvision tqdm`
+- `% pip3 install yt-dlp ipython jupyter keras matplotlib numpy opencv-python pandas quandl scikit-learn scipy seaborn tensorflow theano torch torchvision tqdm`
 - `% instalooter login`
 
 
