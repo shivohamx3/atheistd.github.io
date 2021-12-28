@@ -12,6 +12,7 @@
 - `$ sudo apt remove "*nvidia"`
 - `$ sudo apt install system76-driver-nvidia -y`
 - `$ sudo apt upgrade -y`
+- `$ echo "gtk-application-prefer-dark-theme=true" | tee $HOME/.config/gtk-3.0/settings.ini    # enable dark mode with wm`
 - Reboot
 
 
@@ -74,7 +75,8 @@
 
 ### Installing necessary packages and preliminary setup
 
-- `$ sudo apt install adb alacritty aria2 bash brave-browser breeze-cursor-theme bspwm cifs-utils cmatrix curl dolphin dunst ethtool exfat-fuse exfat-utils fastboot fdisk feh ffmpeg firefox flatpak fonts-firacode fonts-fork-awesome git google-chrome-stable handbrake hdparm htop i3lock i3lock-fancy imagemagick iotop iperf jq libnotify-bin libpam-google-authenticator lsb-release mediainfo mpv neofetch neovim nethogs nload obs-plugins obs-studio openssh-server python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rofi rsync smartmontools socat speedtest-cli squashfs-tools sublime-text sxhkd tar terminator tmux unrar unzip vim virt-manager virtualbox vlc wget xcursor-themes zfsutils-linux zip zsh lxappearance gtk-chtheme -y `
+- `$ sudo apt update`
+- `$ sudo apt install adb alacritty aria2 bash brave-browser breeze-cursor-theme bspwm cifs-utils cmatrix ctags curl dolphin dunst ethtool exfat-fuse exfat-utils fastboot fdisk feh ffmpeg firefox flatpak fonts-firacode fonts-fork-awesome git google-chrome-stable gtk-chtheme handbrake hdparm htop i3lock i3lock-fancy imagemagick iotop iperf jq libnotify-bin libpam-google-authenticator lsb-release lxappearance mediainfo mpv neofetch neovim nethogs nload obs-plugins obs-studio openssh-server picom polybar python3 python3-pip python3-tk python3-venv qemu qemu-efi-aarch64 qemu-efi-arm qemu-system-arm qemu-system-x86 rar rofi rsync smartmontools socat speedtest-cli squashfs-tools sublime-text sxhkd tar terminator tmux unrar unzip vim virt-manager virtualbox vlc wget xcursor-themes zfsutils-linux zip zsh`
 - `$ flatpak install flathub com.leinardi.gwe com.bitwarden.desktop`
 
 - `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`

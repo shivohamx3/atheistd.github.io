@@ -7,34 +7,59 @@
 - `╰─> ssh-copy-id -i ~/.ssh/sentinel.pub ubuntu@192.168.1.104`
 
 - `$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
+- `$ sudo systemctl disable snapd`
 - `$ echo "sentinel" | sudo tee /etc/hostname`
 - `$ echo "127.0.1.1 sentinel" | sudo tee -a /etc/hosts`
 - `$ sudo timedatectl set-timezone Asia/Kolkata`
+
+> */boot/firmware/usercfg.txt* (Ubuntu) OR */boot/firmware/config.txt* (Pop)
+
+```
+hdmi_force_hotplug=1
+disable_overscan=1
+
+over_voltage=6
+arm_freq=2000
+gpu_freq=600
+```
+
 - `$ sudo reboot +0`
 - `$ sudo apt update && sudo apt upgrade -y`
 - `$ sudo reboot +0`
 
 
 
+### SSH Setup
+
+> */etc/locale.gen*
+
+Uncomment the line `en_US.UTF-8 UTF-8`
+
+ - `$ sudo locale-gen`
+
+ > */etc/ssh/sshd_config*
+
+Replace `AcceptEnv LANG LC_*` to `AcceptEnv no`
+
+ - `$ sudo systemctl restart ssh`
+
+
+
 ### Installing necessary packages and preliminary setup
 
-- [PlexMediaServer](https://support.plex.tv/articles/235974187-enable-repository-updating-for-supported-linux-server-distributions/)
-
 - `$ sudo apt update`
-- `$ sudo apt install apache2 aria2 cmatrix curl exfat-fuse exfat-utils ffmpeg git glances hdparm htop iotop libpam-google-authenticator nload openssh-server plexmediaserver python3 python3-pip rsync samba samba-common-bin smartmontools speedtest-cli transmission-cli transmission-common transmission-daemon unrar unzip vim wget zfsutils-linux zip zsh -y`
+- `$ sudo apt install apache2 aria2 cmatrix curl exfat-fuse exfat-utils ffmpeg git glances hdparm htop iotop libpam-google-authenticator nload openssh-server python3 python3-pip rsync samba samba-common-bin smartmontools speedtest-cli transmission-cli transmission-common transmission-daemon unrar unzip vim wget zfsutils-linux zip zsh -y`
 
-- `$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
-- `$ sudo chmod a+rx /usr/local/bin/youtube-dl`
 
-- `$ pip3 install yt-dlp bpytop`
-- `$ instalooter login`
+- `$ sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp`
+- `$ sudo chmod a+rx /usr/local/bin/yt-dlp`
 
 - `$ sudo update-alternatives --set editor /usr/bin/vim.basic`
 
 - `$ sudo reboot +0`
 
 - `$ eval "$(ssh-agent -s)"`
-- `$ cd ~/.ssh/ && ssh-keygen -t ed25519 `&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab*
+- `$ cd ~/.ssh/ && ssh-keygen -t ed25519`&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab*
 - `$ ssh-add ~/.ssh/github`
 - `$ ssh-add ~/.ssh/gitlab`
 
@@ -55,21 +80,17 @@ sudo zfs create libertine/media
 sudo zfs create libertine/media/movies
 sudo zfs create libertine/media/tv_series
 sudo zfs create libertine/media/camera_roll
-
-sudo zfs create libertine/zpesky
 ```
 
 ```
 sudo zfs set atime=off libertine
-sudo zfs set compression=on libertine
-sudo zfs set compression=gzip libertine/zpesky
+sudo zfs set compression=zstd-3 libertine
 sudo zfs set primarycache=all libertine
 sudo zfs set recordsize=1M libertine
 sudo zfs set snapdir=visible libertine
 sudo zfs set xattr=sa libertine
 ```
 
-- `$ sudo usermod -aG ubuntu plex`
 - `$ sudo usermod -aG ubuntu debian-transmission`
 - `$ sudo chmod 755 -R /libertine && sudo chown ubuntu:www-data -R /libertine`
 - `$ sudo reboot +0`
@@ -120,7 +141,7 @@ server:
 
 - `$ sudo service unbound restart`
 
-- Goto [pi-hole dashbord](http://192.168.1.104:200/admin/groups-domains.php?type=white) and add `s.youtube.com` to Whitelist.
+- Goto pi-hole dashbord and add `s.youtube.com` to Whitelist.
 
 - `$ sudo reboot +0`
 
@@ -166,7 +187,7 @@ Do you want to enable rate-limiting? (y/n) `y`
 ChallengeResponseAuthentication yes
 ```
 
-- `$ sudo systemctl restart sshd`
+- `$ sudo systemctl restart ssh`
 
 
 
@@ -278,11 +299,27 @@ server.port = 200
 
 ### Set startup script
 
+- `$ crontab -e`
+
+```
+0 */2 * * * pihole -up
+```
+
 - `$ sudo crontab -e`
 
 ```
-0 0 1,15 * * /usr/sbin/zpool scrub libertine
-0 * * * * /usr/bin/rsync --recursive --size-only /var/lib/transmission-daemon/.config/transmission-daemon/torrents/*.* /libertine/config_dir/
+@reboot /home/ubuntu/scripts/transmission.py
+
+0 0 1,2,3 * * curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+0 0 1,2,3 * * chmod a+rx /usr/local/bin/yt-dlp
+
+0 0 1,14 * * /usr/bin/systemctl stop transmission-daemon.service
+1 0 * * * /usr/bin/rsync --recursive --size-only /var/lib/transmission-daemon/.config/transmission-daemon/torrents/*.* /libertine/config_dir
+2 0 * * * /usr/bin/chmod 774 -R /libertine && /usr/bin/chown ubuntu:www-data -R /libertine && /usr/bin/find /libertine -type f -exec chmod 660 {} \; && /usr/bin/find /libertine -type f -name "*.DS_Store" -exec rm {} \;
+20 0 1,14 * * /usr/sbin/zpool scrub libertine
+
+40 7 * * 1,2,3,4 /usr/bin/systemctl stop transmission-daemon.service
+10 17 * * 1,2,3,4 /usr/bin/systemctl restart transmission-daemon.service
 ```
 
 - `$ crontab -e`
@@ -300,13 +337,6 @@ server.port = 200
 # SendEnv LANG LC_*
 ```
 (comment the line out if you didn't understand)
-
-
-
-### Plex setup
-
-- In the [web UI](http://192.168.1.104:32400/web),, go to Settings -> Network -> *List of IP addresses and networks that are allowed without auth* and enter `192.168.1.0/24`.
-- Now in the web UI, under Settings -> Scheduled Tasks, set the *Backup Directory* to `/libertine/backup/sentinel/plexmediaserver/common/Library/Application\ Support/Plex\ Media\ Server/Plug-in\ Support/Databases/`
 
 
 
