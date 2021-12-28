@@ -40,6 +40,7 @@ Uncomment the line `en_US.UTF-8 UTF-8`
  > */etc/ssh/sshd_config*
 
 Replace `AcceptEnv LANG LC_*` to `AcceptEnv no`
+Change `Port 22` to `Port <check in $HOME/.ssh/config>`
 
  - `$ sudo systemctl restart ssh`
 
@@ -99,7 +100,10 @@ sudo zfs set xattr=sa libertine
 
 ### Setup pi-hole + unbound
 
-- `$ curl -sSL https://install.pi-hole.net | bash`
+- `$ git clone --depth=1 https://github.com/pi-hole/pi-hole.git Pi-hole`
+- `$ cd "Pi-hole/automated install/"`
+- `$ sudo bash basic-install.sh`
+
 - `$ sudo apt install unbound -y` (unbound installation will fail as pihole-FTL is already running on port 53)
 - `$ pihole -a -p`
 
