@@ -40,6 +40,7 @@ Uncomment the line `en_US.UTF-8 UTF-8`
  > */etc/ssh/sshd_config*
 
 Replace `AcceptEnv LANG LC_*` to `AcceptEnv no`
+
 Change `Port 22` to `Port <check in $HOME/.ssh/config>`
 
  - `$ sudo systemctl restart ssh`
@@ -166,6 +167,10 @@ server:
 ```
 
 - `$ sudo service unbound restart`
+
+Check if unbound is working or not
+
+- `$ dig google.com @127.0.0.1 -p 5335`
 
 - Goto pi-hole dashbord and add `s.youtube.com` to Whitelist.
 
@@ -309,13 +314,13 @@ server.port = 200
 [...]
 	"umask": 2,
 [...]
-	"download-dir": "/libertine/personal/torrents",
+	"download-dir": "/libertine/torrents",
 	"download-limit": 500,
 [...]
-	"incomplete-dir": "/libertine/personal/torrents/.incomplete"
+	"incomplete-dir": "/libertine/torrents/.incomplete",
 	"incomplete-dir-enabled": true,
 [...]
-	"download-queue-size": 10,
+	"download-queue-enabled": false,
 [...]
 ```
 
