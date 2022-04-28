@@ -21,7 +21,7 @@
 ### Installing necessary packages and preliminary setup
 
 - `$ sudo apt update`
-- `$ sudo apt install adb alacritty aria2 barrier bc bison btop build-essential cifs-utils cmake cmatrix curl ethtool exfat-fuse exfat-utils fakeroot fastboot fdisk ffmpeg flex fonts-firacode fonts-fork-awesome git handbrake hdparm htop imagemagick iotop iperf iperf3 libelf-dev libpam-google-authenticator libssl-dev linux-headers-$(uname -r) lsb-release mediainfo mpv ncurses-dev neofetch neovim nethogs nload nvme-cli obs-plugins obs-studio openssh-server python3 python3-pip qemu qemu-efi-aarch64 qemu-efi-arm qemu-kvm qemu-system-arm qemu-system-x86 rar rsync smartmontools speedtest-cli tar tmux transmission-cli unrar unzip valgrind vim virt-manager vlc wakeonlan wget xz-utils yt-dlp zfs-dkms zip zsh`
+- `$ sudo apt install adb alacritty aria2 barrier bc bison btop build-essential cifs-utils cmake cmatrix curl ethtool exfat-fuse exfat-utils fakeroot fastboot fdisk ffmpeg flex fonts-firacode fonts-fork-awesome git handbrake hdparm htop imagemagick iotop iperf iperf3 libelf-dev libnotify-bin libpam-google-authenticator libssl-dev linux-headers-5.16.19-76051619-generic lsb-release mediainfo mpv ncurses-dev neofetch neovim nethogs nload nvme-cli obs-plugins obs-studio openssh-server python3 python3-pip qemu qemu-efi-aarch64 qemu-efi-arm qemu-kvm qemu-system-arm qemu-system-x86 rar ripgrep rsync smartmontools speedtest-cli tar tmux transmission-cli unrar unzip valgrind vim virt-manager vlc wakeonlan wget xz-utils yt-dlp zfs-dkms zip zsh zsh-autosuggestions zsh-syntax-highlighting`
 
 - `$ #apt search virtualbox | grep pop`
 
