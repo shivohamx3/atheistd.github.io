@@ -115,6 +115,30 @@ ChallengeResponseAuthentication yes
 
 - `$ sudo systemctl restart sshd`
 
+
+### Powering off HDDs
+
+*/etc/systemd/system/power-down-hdds-after-wake-up.service*
+
+```
+[Unit]
+Description=Put HDDs to sleep after waking up from suspend
+After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+
+[Service]
+ExecStart=/usr/bin/bash /home/atheistd/.scripts/hdd_sleep.sh
+#User=my_user_name
+#Environment=DISPLAY=:0
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+```
+
+> Add the following crojob to root's cron
+
+`@reboot /usr/bin/bash /home/atheistd/.scripts/hdd_sleep.sh`
+
 ### OBS NVENC plugin(s)
 
  - [StreamFX](https://obsproject.com/forum/resources/streamfx-for-obs-studio.578/updates)
