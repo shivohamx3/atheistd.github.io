@@ -36,7 +36,7 @@
 ### Install necessary packages
 
 - ```$ sudo apt install conky curl exfat-fuse exfat-utils ffmpeg fish git glances gnome-shell-extensions gparted handbrake htop libpam-google-authenticator nload smartmontools speedtest-cli telegram-desktop terminator transmission vim wget youtube-dl zfsutils-linux zsh fonts-firacode -y```
-- `$ sudo zpool import 12327394492612946617`
+- `$ sudo zpool import `
 
 
 

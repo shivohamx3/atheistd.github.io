@@ -235,15 +235,6 @@ ChallengeResponseAuthentication yes
 	writeable = yes
 	create mask = 0700
 	directory mask = 0700
-
-[pi]
-	guest ok = no
-	comment = home
-	path = /home/ubuntu
-	browseable = yes
-	writeable = yes
-	create mask = 0700
-	directory mask = 0700
 ```
 
 - `$ sudo smbpasswd -a ubuntu`
@@ -269,12 +260,6 @@ Listen 666
 	AllowOverride None
 	Require all granted
 </Directory>
-
-<Directory /home/ubuntu>
-	Options Indexes FollowSymLinks
-	AllowOverride None
-	Require all granted
-</Directory>
 ```
 
 > */etc/apache2/sites-available/000-default.conf*
@@ -283,11 +268,6 @@ Listen 666
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
 	DocumentRoot /libertine
-</VirtualHost>
-
-<VirtualHost *:666>
-	ServerAdmin webmaster@localhost
-	DocumentRoot /home/ubuntu
 </VirtualHost>
 ```
 
@@ -333,30 +313,24 @@ server.port = 200
 - `$ crontab -e`
 
 ```
-0 */2 * * * pihole -up
+0 * * * * pihole -up
+0,2,4,5,8 6,7 * * 1,2,3,4,5 bash /home/ubuntu/scripts/pause_torrs.sh
+0,2,4,6,8 17 * * * bash /home/ubuntu/scripts/resume_torrs.sh
+0 0 * * * bash /home/ubuntu/scripts/bandwidth_priority.sh
 ```
 
 - `$ sudo crontab -e`
 
 ```
-@reboot /home/ubuntu/scripts/transmission.py
+#@reboot /home/ubuntu/scripts/transmission-check-bin
 
-0 0 1,2,3 * * curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
-0 0 1,2,3 * * chmod a+rx /usr/local/bin/yt-dlp
-
-0 0 1,14 * * /usr/bin/systemctl stop transmission-daemon.service
-1 0 * * * /usr/bin/rsync --recursive --size-only /var/lib/transmission-daemon/.config/transmission-daemon/torrents/*.* /libertine/config_dir
-2 0 * * * /usr/bin/chmod 774 -R /libertine && /usr/bin/chown ubuntu:www-data -R /libertine && /usr/bin/find /libertine -type f -exec chmod 660 {} \; && /usr/bin/find /libertine -type f -name "*.DS_Store" -exec rm {} \;
-20 0 1,14 * * /usr/sbin/zpool scrub libertine
-
-40 7 * * 1,2,3,4 /usr/bin/systemctl stop transmission-daemon.service
-10 17 * * 1,2,3,4 /usr/bin/systemctl restart transmission-daemon.service
-```
-
-- `$ crontab -e`
-
-```
-0 * * * * /usr/bin/rsync --recursive --size-only /home/ubuntu/.config/transmission/torrents/*.* /libertine/personal/config_dir
+0 0 1 * * systemctl stop transmission-daemon.service
+0 0 * * * rsync --size-only /var/lib/transmission-daemon/.config/transmission-daemon/torrents/*.* /libertine/config_dir/
+1 0 * * * chmod 775 -R /libertine/torrents
+2 0 * * * chown ubuntu:debian-transmission -R /libertine/torrents
+3 0 * * * find /libertine/torrents -type f -exec chmod 664 {} \;
+8 0 * * * find /libertine/torrents -type f -name "*.DS_Store" -exec rm {} \;
+9 0 1 * * /sbin/zpool scrub libertine
 ```
 
 
