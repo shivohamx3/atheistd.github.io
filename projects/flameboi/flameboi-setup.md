@@ -1,4 +1,4 @@
-# Setup *flameboi!* ![flameboi! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/flameboi/flameboi-small.png)
+# Setup *flameboi!* ![flameboi! image](https://github.com/shivohamx3/shivohamx3.github.io/raw/master/assets/flameboi/flameboi-small.png)
 
 ### UPDATE!!!
 
@@ -50,9 +50,9 @@ echo "gtk-application-prefer-dark-theme=true" | tee $HOME/.config/gtk-3.0/settin
 */etc/libvirt/qemu.conf*
 
 ```
-user = "atheistd"
+user = "shivoham"
 [...]
-roup = "atheistd"
+roup = "shivoham"
 
 ```
 
@@ -68,7 +68,7 @@ roup = "atheistd"
 
 - `$ cd ~/.ssh`
 - `$ ssh-keygen -t ed25519 `&nbsp;&nbsp;&nbsp;&nbsp;*github, gitlab, sentinel, prodigium*
-- `$ chsh -s /usr/bin/zsh atheistd`
+- `$ chsh -s /usr/bin/zsh shivoham`
 
 ### git config
 
@@ -127,7 +127,7 @@ After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate
 
 
 [Service]
-ExecStart=/usr/bin/bash /home/atheistd/.scripts/hdd_sleep.sh
+ExecStart=/usr/bin/bash /home/shivoham/.scripts/hdd_sleep.sh
 #User=my_user_name
 #Environment=DISPLAY=:0
 
@@ -137,7 +137,7 @@ WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibern
 
 > Add the following crojob to root's cron
 
-`@reboot /usr/bin/bash /home/atheistd/.scripts/hdd_sleep.sh`
+`@reboot /usr/bin/bash /home/shivoham/.scripts/hdd_sleep.sh`
 
 ### OBS NVENC plugin(s)
 
@@ -166,7 +166,7 @@ WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibern
 [Desktop Entry]
 Name=bspwm
 Comment=Binary space partitioning window manager
-Exec=/home/atheistd/.xinitrc
+Exec=/home/shivoham/.xinitrc
 Type=Application
 ```
 

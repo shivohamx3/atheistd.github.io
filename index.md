@@ -1,12 +1,12 @@
 <head>
-	<link rel="shortcut icon" type="image/x-icon" href="https://github.com/atheistd/atheistd.github.io/raw/master/assets/favicon/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="https://github.com/shivohamx3/shivohamx3.github.io/raw/master/assets/favicon/favicon.ico">
 </head>
 
-# atheistd
-### [Setup `ringmaster`](https://atheistd.github.io/projects/ringmaster/ringmaster-setup)
-### [Setup `sentinel`](https://atheistd.github.io/projects/sentinel/sentinel-setup)
-### [Setup `flameboi`](https://atheistd.github.io/projects/flameboi/flameboi-setup)
-### [Setup `prodigium`](https://atheistd.github.io/projects/prodigium/prodigium-setup)
+# shivohamx3
+### [Setup `ringmaster`](https://shivohamx3.github.io/projects/ringmaster/ringmaster-setup)
+### [Setup `sentinel`](https://shivohamx3.github.io/projects/sentinel/sentinel-setup)
+### [Setup `flameboi`](https://shivohamx3.github.io/projects/flameboi/flameboi-setup)
+### [Setup `prodigium`](https://shivohamx3.github.io/projects/prodigium/prodigium-setup)
 
 <br><br>
 <br><br><br><br>

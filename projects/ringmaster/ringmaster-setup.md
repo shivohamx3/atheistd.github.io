@@ -1,4 +1,4 @@
-# Setup *ringmaster* ![beach-ball](https://github.com/atheistd/atheistd.github.io/raw/master/assets/ringmaster/ringmaster.gif)
+# Setup *ringmaster* ![beach-ball](https://github.com/shivohamx3/shivohamx3.github.io/raw/master/assets/ringmaster/ringmaster.gif)
 
 
 ### Xcode set-up

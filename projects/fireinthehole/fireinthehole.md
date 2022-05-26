@@ -1,4 +1,4 @@
-# Setup *fireinthehole* ![fireinthehole! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/fireinthehole/fireinthehole.png)
+# Setup *fireinthehole* ![fireinthehole! image](https://github.com/shivohamx3/shivohamx3.github.io/raw/master/assets/fireinthehole/fireinthehole.png)
 
 
 

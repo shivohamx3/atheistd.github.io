@@ -1,4 +1,4 @@
-# Setup *sentinel* ![sentinel! image](https://github.com/atheistd/atheistd.github.io/raw/master/assets/sentinel/sentinel.jpg)
+# Setup *sentinel* ![sentinel! image](https://github.com/shivohamx3/shivohamx3.github.io/raw/master/assets/sentinel/sentinel.jpg)
 
 
 

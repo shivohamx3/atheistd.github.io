@@ -1,3 +1,3 @@
-# atheistd.github.io
+# shivohamx3.github.io
 
-GitHub Pages repo of [atheistd.github.io](https://atheistd.github.io)
+GitHub Pages repo of [shivohamx3.github.io](https://shivohamx3.github.io)
